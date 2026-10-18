@@ -212,6 +212,7 @@ def build_index():
     notes = f'<section class="part notes" id="notes" aria-labelledby="notes-h">\n  <div class="wrap">\n    <p class="eyebrow">Notes</p>\n    <h2 id="notes-h">설정 및 유의사항</h2>\n    <div class="box"><ul>{notes}</ul></div>\n  </div>\n</section>'
     page = t.replace('{{SPR}}', json.dumps(spr)).replace('{{CORE}}', CORE).replace('{{NOTES}}', notes)
     open(f'{OUT}/4-0_index.html', 'w', encoding='utf-8').write(page)
+    open(f'{OUT}/index.html', 'w', encoding='utf-8').write(page)  # GitHub Pages 첫 화면
     print(f"4-0_index.html: {len(page)//1024} KB (그림 {sum(len(v) for v in spr.values())//1024} KB, {len(spr)}장)")
 
 
