@@ -398,6 +398,10 @@ figure.scene::after{content:"";position:absolute;inset:0;pointer-events:none;box
 .fambtn .crest{float:right;margin:0 0 0 8px}
 .dossier{border:1px solid var(--rule);background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(168,154,134,.08) 27px 28px),var(--panel)}
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) figure.scene::after{box-shadow:inset 0 0 50px rgba(60,40,20,.35)}}
+/* 위쪽 메뉴가 길 때: 세력도 배지는 줄지 않고, 메뉴는 가로로 밀리며 오른쪽 끝을 흐리게 */
+nav.top .score{flex:0 0 auto}
+.toc{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);padding-right:24px}
+@media (max-width:1320px){.toc a{padding:6px 8px;font-size:13.5px}}
 </style>
 </head>
 <body>
@@ -442,7 +446,7 @@ figure.scene::after{content:"";position:absolute;inset:0;pointer-events:none;box
     <aside class="prereq" aria-label="먼저 읽으면 좋은 편">
       <b>먼저 읽으면 좋은 편</b>
       <span><a href="4-1_ml_family_map.html#m2">4-1 가계도 · 02 가계도</a> — 지도학습이 네 가문 가운데 어디에 있는지</span>
-      <span>같은 세로줄: <span class="soon">명부 → 4-6 회귀파 일곱 · 4-7 분류파 여덟 (준비 중)</span> · <span class="soon">회합 → 4-12 지도 가문의 장부 (준비 중)</span></span>
+      <span>같은 세로줄: 명부 → <a href="https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-6_regression_seven.html">4-6 회귀파 일곱</a> · <a href="https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-7_classification_eight.html">4-7 분류파 여덟</a> · <a href="https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-12_supervised_metrics.html">회합 → 4-12 지도 가문의 장부</a></span>
     </aside>
   </div>
 </header>
@@ -726,12 +730,18 @@ crest_sup:['KKKKKKKKKKKK','KUUUUUUUUUUK','KUUUEEEEUUUK','KUUEUUUUEUUK','KUEUUEEU
 crest_uns:['KKKKKKKKKKKK','KUUUUUUUUUUK','KUUUUEEUUUUK','KUUUUEEUUUUK','KUUUUUUUUUUK','KUUUUUUUUUUK','KUEEUUUUEEUK','KUEEUUUUEEUK','KUUUUUUUUUUK','KUUUUUUUUUUK','.KUUUUUUUUK.','..KUUUUUUK..','...KUUUUK...','....KKKK....'],
 crest_rl:['KKKKKKKKKKKK','KUUUUUUUUUUK','KUUUEEEEUUUK','KUUEEEKEEUUK','KUEEEKKKEEUK','KUEEEKEEEEUK','KUEEEKKKEEUK','KUEEEEEKEEUK','KUUEEKKKEUUK','KUUUEEKEUUUK','.KUUUUUUUUK.','..KUUUUUUK..','...KUUUUK...','....KKKK....'],
 crest_ens:['KKKKKKKKKKKK','KUUUUUUUUUUK','KUUEUUUUEUUK','KUEEEUUEEEUK','KEEEEEEEEEEK','KUUEUUUUEUUK','KUUEEUUEEUUK','KUUUEEEEUUUK','KUUUUEEUUUUK','KUUUEEEEUUUK','.KUUEUUEUUK.','..KUUUUUUK..','...KUUUUK...','....KKKK....'],
+scare:['....yyyy....','...yYYYYy...','.yyYYYYYYyy.','....cccc....','...cKccKc...','...cccccc...','....cKKc....','bbbbBBBBbbbb','...BWWWWB...','...BWSSWB...','...BWWWWB...','...BBBBBB...','....bbbb....','.....bb.....','.....bb.....','....bbbb....'],
+mouse:['.S........','SwS.......','.SSSSSS...','SSSSSSSS..','KSSSSSSSS.','.SSSSSSSSS','..d..d..dS','.........S'],
+tree:['...GGG...','..GGGGG..','.GGKGKGG.','GGGGGGGGG','GGGGGGGGG','.GGGGGGG.','..GGGGG..','....B....','...BBB...','....B....','...B.B...','..BB.BB..'],
+token:['...KKKK...','..KccccK..','..KcKKcK..','..KccccK..','...KKKK...','..KUUUUK..','.KUUUUUUK.','.KUEEEEUK.','.KUUUUUUK.','KUUUUUUUUK','KWWWWWWWWK','KKKKKKKKKK'],
+sweep2:['..G.G.G.......','...GGG........','....dddddd....','..ddDDDDDDdd..','.dDDDDDDDDDDd.','dDDDDGGDDDDDDd','dDDDDGGDDDDDDd','dYYYYYYYYYYYYd','dDDDDDDDDDDDDd','.dDDDDDDDDDDd.','..ddDDDDDDdd..','....dddddd....'],
+sweep3:['.........RR...','.........RRR..','.........K....','....ddddKd....','..ddDDDDKDdd..','.dDDDDDDDDDDd.','dDDDDGGDDDDDDd','dDDDDGGDDDDDDd','dYYYYYYYYYYYYd','dDDDDDDDDDDDDd','.dDDDDDDDDDDd.','..ddDDDDDDdd..','....dddddd....'],
 qmark:['.YYY.','Y...Y','...Y.','..Y..','.....','..Y..']};
 var cache={};
 function draw(kind,scale,col){var m=MAP[kind];if(!m)return null;var k=kind+scale+(col||'');if(cache[k])return cache[k];var h=m.length,w=m[0].length,c=document.createElement('canvas');c.width=w*scale;c.height=h*scale;var x=c.getContext('2d');
   for(var j=0;j<h;j++)for(var i=0;i<w;i++){var ch=m[j][i];if(ch==='.')continue;x.fillStyle=(col&&'UPG'.indexOf(ch)>=0)?col:PAL[ch];x.fillRect(i*scale,j*scale,scale,scale);}
   cache[k]=c;return c;}
-function el(kind,scale,label){var src=draw(kind,scale);var c=document.createElement('canvas');c.className='npc';c.width=src.width;c.height=src.height;c.getContext('2d').drawImage(src,0,0);
+function el(kind,scale,label,col){var src=draw(kind,scale,col);var c=document.createElement('canvas');c.className='npc';c.width=src.width;c.height=src.height;c.getContext('2d').drawImage(src,0,0);
   if(label){c.setAttribute('role','img');c.setAttribute('aria-label',label);}else c.setAttribute('aria-hidden','true');return c;}
 function crest(fam,scale,label){var col={sup:'#6f8fb5',uns:'#7aa063',rl:'#c99a3e',ens:'#a65d7d'}[fam];var src=draw('crest_'+fam,scale,col);var c=document.createElement('canvas');c.className='crest';c.width=src.width;c.height=src.height;c.getContext('2d').drawImage(src,0,0);
   if(label){c.setAttribute('role','img');c.setAttribute('aria-label',label);}else c.setAttribute('aria-hidden','true');return c;}
@@ -746,16 +756,16 @@ var EPISODES=[
  {n:'4-3',f:'4-3_unsupervised.html',t:'비지도 가문',plan:'r',ready:1},
  {n:'4-4',f:'4-4_reinforcement.html',t:'강화 가문',plan:'f',ready:1},
  {n:'4-5',f:'4-5_ensemble.html',t:'앙상블 연합',plan:'r',ready:1},
- {n:'4-6',f:'4-6_regression_seven.html',t:'회귀파 일곱',plan:'r',ready:0},
- {n:'4-7',f:'4-7_classification_eight.html',t:'분류파 여덟',plan:'r',ready:0},
- {n:'4-8',f:'4-8_unsupervised_nine.html',t:'비지도 아홉',plan:'f',ready:0},
- {n:'4-9',f:'4-9_rl_three.html',t:'강화 삼대',plan:'d',ready:0},
- {n:'4-10',f:'4-10_ensemble_lineage.html',t:'앙상블 계보',plan:'r',ready:0},
- {n:'4-11',f:'4-11_fair_rules.html',t:'가문의 규칙',plan:'x',ready:0},
- {n:'4-12',f:'4-12_supervised_metrics.html',t:'지도 가문의 장부',plan:'f',ready:0},
- {n:'4-13',f:'4-13_unsupervised_metrics.html',t:'비지도 가문의 장부',plan:'r',ready:0},
- {n:'4-14',f:'4-14_rl_metrics.html',t:'강화 가문의 장부',plan:'f',ready:0},
- {n:'4-15',f:'4-15_final_and_choice.html',t:'마지막 담판',plan:'d',ready:0}];
+ {n:'4-6',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-6_regression_seven.html',t:'회귀파 일곱',plan:'r',ready:1},
+ {n:'4-7',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-7_classification_eight.html',t:'분류파 여덟',plan:'r',ready:1},
+ {n:'4-8',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-8_unsupervised_nine.html',t:'비지도 아홉',plan:'f',ready:1},
+ {n:'4-9',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-9_rl_three.html',t:'강화 삼대',plan:'d',ready:1},
+ {n:'4-10',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-10_ensemble_lineage.html',t:'앙상블 계보',plan:'r',ready:1},
+ {n:'4-11',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-11_fair_rules.html',t:'가문의 규칙',plan:'x',ready:1},
+ {n:'4-12',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-12_supervised_metrics.html',t:'지도 가문의 장부',plan:'f',ready:1},
+ {n:'4-13',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-13_unsupervised_metrics.html',t:'비지도 가문의 장부',plan:'r',ready:1},
+ {n:'4-14',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-14_rl_metrics.html',t:'강화 가문의 장부',plan:'f',ready:1},
+ {n:'4-15',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-15_final_and_choice.html',t:'마지막 담판',plan:'d',ready:1}];
 var PARTS=['1부 · 가계도','2부 · 명부','3부 · 회합'];
 var COLS=[['전체','회귀'],['지도','분류'],['비지도',''],['강화',''],['앙상블','']];
 function epIdx(n){for(var i=0;i<EPISODES.length;i++)if(EPISODES[i].n===n)return i;return -1;}
@@ -984,9 +994,104 @@ function majority(n,p){var s=0;for(var k=Math.floor(n/2)+1;k<=n;k++)s+=choose(n,
 /* 상관이 있는 위원: 문항마다 '함께 틀리는 몫' rho만큼은 한 번의 공통 판정을 모두가 따른다 */
 function committeeSim(n,p,rho,Q,seed){var r=R(seed),ok=0;for(var q=0;q<Q;q++){var common=r()<p,v=0;for(var i=0;i<n;i++){var right=r()<rho?common:(r()<p);if(right)v++;}if(v*2>n)ok++;}return ok/Q}
 
+
+/* ══ 2부 추가: 회귀·분류·군집·강화 조직원들 ══════════════════════ */
+/* 표준화 (훈련 평균·표준편차로) */
+function scaler(X){var d=X[0].length,mu=[],sd=[];for(var j=0;j<d;j++){var m=0;X.forEach(function(x){m+=x[j]/X.length;});var v=0;X.forEach(function(x){v+=(x[j]-m)*(x[j]-m)/X.length;});mu.push(m);sd.push(Math.sqrt(v)||1);}
+  return {mu:mu,sd:sd,t:function(x){return x.map(function(v,j){return (v-mu[j])/sd[j]})}};}
+/* ── Elastic Net (좌표 하강). alpha=0 → Ridge, alpha=1 → Lasso, lam=0 → 선형 ── */
+function enet(X,y,lam,alpha,iters){var sc=scaler(X),Z=X.map(sc.t),n=Z.length,d=Z[0].length,ym=mean(y),w=new Array(d).fill(0),res=y.map(function(v){return v-ym});
+  for(var it=0;it<(iters||300);it++){var mx=0;for(var j=0;j<d;j++){var rho=0,zz=0;for(var i=0;i<n;i++){rho+=Z[i][j]*(res[i]+Z[i][j]*w[j]);zz+=Z[i][j]*Z[i][j];}rho/=n;zz/=n;
+    var l1=lam*alpha,l2=lam*(1-alpha),nw=(rho>l1?rho-l1:(rho<-l1?rho+l1:0))/(zz+l2),dw=nw-w[j];if(dw){for(i=0;i<n;i++)res[i]-=Z[i][j]*dw;w[j]=nw;mx=Math.max(mx,Math.abs(dw));}}if(mx<1e-7)break;}
+  return {w:w,b:ym,sc:sc,coef:w.map(function(v,j){return v/sc.sd[j]}),predict:function(x){var z=sc.t(x),s=ym;for(var j=0;j<d;j++)s+=w[j]*z[j];return s;}};}
+/* ── 회귀 트리 (제곱 오차, 깊이 제한). extra=1 이면 자르는 지점을 무작위로 ── */
+function regTree(X,y,maxD,minLeaf,r,mtry,extra){minLeaf=minLeaf||1;var d=X[0].length;
+  function avg(ix){var s=0;ix.forEach(function(i){s+=y[i];});return s/ix.length}
+  function grow(ix,dep){var m=avg(ix);if(dep>=maxD||ix.length<2*minLeaf)return {leaf:1,v:m,n:ix.length};
+    var feats=[];for(var f=0;f<d;f++)feats.push(f);if(mtry&&r)feats=shuffle(feats,r).slice(0,mtry);var best=null,S=0,SS=0;ix.forEach(function(i){S+=y[i];SS+=y[i]*y[i];});var base=SS-S*S/ix.length;
+    feats.forEach(function(f){var s=ix.slice().sort(function(a,b){return X[a][f]-X[b][f]}),lo=X[s[0]][f],hi=X[s[s.length-1]][f];if(lo===hi)return;
+      if(extra){var th=lo+(hi-lo)*r(),ls=0,lss=0,ln=0;s.forEach(function(i){if(X[i][f]<=th){ls+=y[i];lss+=y[i]*y[i];ln++;}});var rn=s.length-ln;if(ln<minLeaf||rn<minLeaf)return;
+        var sse=lss-ls*ls/ln+(SS-lss)-(S-ls)*(S-ls)/rn;if(!best||sse<best.e)best={e:sse,f:f,t:th};return;}
+      var L=0,LL=0;for(var k=0;k<s.length-1;k++){L+=y[s[k]];LL+=y[s[k]]*y[s[k]];var nl=k+1,nr=s.length-nl;if(nl<minLeaf||nr<minLeaf)continue;var a=X[s[k]][f],b=X[s[k+1]][f];if(a===b)continue;
+        var e=LL-L*L/nl+(SS-LL)-(S-L)*(S-L)/nr;if(!best||e<best.e)best={e:e,f:f,t:(a+b)/2};}});
+    if(!best||best.e>=base-1e-12)return {leaf:1,v:m,n:ix.length};var li=[],ri=[];ix.forEach(function(i){(X[i][best.f]<=best.t?li:ri).push(i);});
+    return {f:best.f,t:best.t,l:grow(li,dep+1),r:grow(ri,dep+1)};}
+  var root=grow(X.map(function(_,i){return i}),0);function pred(x){var n=root;while(!n.leaf)n=x[n.f]<=n.t?n.l:n.r;return n.v;}
+  function leaves(n){return n.leaf?1:leaves(n.l)+leaves(n.r)}return {root:root,predict:pred,leaves:leaves(root)};}
+/* ── GBM 회귀: 잔차를 다음 트리가 배운다. predictK(x,k) = 앞의 k그루까지 ── */
+function gbmReg(X,y,M,lr,depth){var f0=mean(y),F=y.map(function(){return f0}),T=[];
+  for(var m=0;m<M;m++){var res=y.map(function(v,i){return v-F[i]}),t=regTree(X,res,depth||2,3);T.push(t);F=F.map(function(v,i){return v+lr*t.predict(X[i])});}
+  function pk(x,k){var s=f0;for(var m=0;m<k;m++)s+=lr*T[m].predict(x);return s;}
+  return {trees:T,f0:f0,lr:lr,predictK:pk,predict:function(x){return pk(x,T.length)}};}
+/* ── GBM 분류 (로그 손실, 잔차 = 정답 − 확률) ── */
+function gbmClf(X,y,M,lr,depth){var p0=Math.min(Math.max(mean(y),1e-3),1-1e-3),f0=Math.log(p0/(1-p0)),F=y.map(function(){return f0}),T=[];
+  for(var m=0;m<M;m++){var res=y.map(function(v,i){return v-sig(F[i])}),t=regTree(X,res,depth||3,3);
+    T.push(t);F=F.map(function(v,i){return v+lr*4*t.predict(X[i])});}
+  function fk(x,k){var s=f0;for(var m=0;m<k;m++)s+=lr*4*T[m].predict(x);return s;}
+  return {trees:T,prob:function(x){return sig(fk(x,T.length))},probK:function(x,k){return sig(fk(x,k))},predict:function(x){return fk(x,T.length)>=0?1:0}};}
+/* ── Extra Trees (분류): 자르는 특징·지점 모두 무작위, 부트스트랩 없음 ── */
+function extraTrees(X,y,nT,maxD,seed){var r=R(seed),T=[];for(var t=0;t<nT;t++){var rt=regTree(X,y,maxD,1,r,1,1);T.push(rt);}
+  return {trees:T,vote:function(x){var v=0;T.forEach(function(t){v+=t.predict(x)});return v/T.length},predict:function(x){return this.vote(x)>=.5?1:0}};}
+/* ── K-최근접 이웃 ── */
+function knn(X,y,k){return {predict:function(x){var D=X.map(function(p,i){var s=0;for(var j=0;j<p.length;j++)s+=(p[j]-x[j])*(p[j]-x[j]);return [s,y[i]]}).sort(function(a,b){return a[0]-b[0]}),v=0;for(var i=0;i<k;i++)v+=D[i][1];return v*2>k?1:(v*2<k?0:D[0][1]);}};}
+/* ── 가우스 나이브 베이즈 ── */
+function gnb(X,y){var d=X[0].length,S=[0,1].map(function(c){var P=X.filter(function(_,i){return y[i]===c}),mu=[],va=[];for(var j=0;j<d;j++){var m=0;P.forEach(function(p){m+=p[j]/P.length});var v=0;P.forEach(function(p){v+=(p[j]-m)*(p[j]-m)/P.length});mu.push(m);va.push(v+1e-6);}return {pr:P.length/X.length,mu:mu,va:va};});
+  function lp(x,c){var s=Math.log(S[c].pr);for(var j=0;j<d;j++)s+=-.5*Math.log(2*Math.PI*S[c].va[j])-(x[j]-S[c].mu[j])*(x[j]-S[c].mu[j])/(2*S[c].va[j]);return s;}
+  return {prob:function(x){var a=lp(x,0),b=lp(x,1),m=Math.max(a,b);return Math.exp(b-m)/(Math.exp(a-m)+Math.exp(b-m))},predict:function(x){return lp(x,1)>=lp(x,0)?1:0}};}
+/* ── RBF 커널 근사(무작위 푸리에 특징): 커널 SVM·SVR을 선형 모델로 흉내 ── */
+function rff(d,D,gamma,seed){var r=R(seed),W=[],b=[];for(var k=0;k<D;k++){var w=[];for(var j=0;j<d;j++)w.push(N(r)*Math.sqrt(2*gamma));W.push(w);b.push(r()*2*Math.PI);}
+  return function(x){var o=[];for(var k=0;k<D;k++){var s=b[k];for(var j=0;j<d;j++)s+=W[k][j]*x[j];o.push(Math.sqrt(2/D)*Math.cos(s));}return o;};}
+/* ── 선형 SVM (Pegasos, 힌지 손실). phi로 커널 근사 특징을 줄 수 있다 ── */
+function svm(X,y,lam,ep,seed,phi){var Z=phi?X.map(phi):X,n=Z.length,d=Z[0].length,w=new Array(d).fill(0),b=0,r=R(seed||1),t=0;
+  for(var e=0;e<ep;e++)for(var q=0;q<n;q++){var i=Math.floor(r()*n);t++;var eta=1/(lam*t),yy=y[i]?1:-1,m=b;for(var j=0;j<d;j++)m+=w[j]*Z[i][j];
+    for(j=0;j<d;j++)w[j]*=(1-eta*lam);if(yy*m<1){for(j=0;j<d;j++)w[j]+=eta*yy*Z[i][j];b+=eta*yy*0.1;}}
+  function sc(x){var z=phi?phi(x):x,s=b;for(var j=0;j<d;j++)s+=w[j]*z[j];return s;}
+  return {score:sc,predict:function(x){return sc(x)>=0?1:0}};}
+/* ── SVR (ε-무감 손실, 경사 하강). ε 폭 안의 오차는 봐준다 ── */
+function svr(X,y,eps,lam,ep,lr,phi){var Z=phi?X.map(phi):X,n=Z.length,d=Z[0].length,w=new Array(d).fill(0),b=mean(y);
+  for(var e=0;e<ep;e++){var g=new Array(d).fill(0),gb=0;for(var i=0;i<n;i++){var p=b;for(var j=0;j<d;j++)p+=w[j]*Z[i][j];var r=p-y[i];if(Math.abs(r)>eps){var s=r>0?1:-1;for(j=0;j<d;j++)g[j]+=s*Z[i][j];gb+=s;}}
+    for(j=0;j<d;j++)w[j]-=lr*(g[j]/n+lam*w[j]);b-=lr*gb/n;}
+  return {predict:function(x){var z=phi?phi(x):x,s=b;for(var j=0;j<d;j++)s+=w[j]*z[j];return s;}};}
+/* ── K-메도이드: 중심을 실제 데이터 점 중에서 고른다 ── */
+function d2(a,b){var s=0;for(var i=0;i<a.length;i++)s+=(a[i]-b[i])*(a[i]-b[i]);return s}
+function kmedoids(P,k,seed,iters){var r=R(seed),M=shuffle(P.map(function(_,i){return i}),r).slice(0,k),a=[];
+  for(var it=0;it<(iters||20);it++){a=P.map(function(p){var bi=0,bd=1e18;M.forEach(function(m,j){var dd=Math.sqrt(d2(p,P[m]));if(dd<bd){bd=dd;bi=j;}});return bi;});
+    var nm=M.map(function(m,j){var mem=[];a.forEach(function(v,i){if(v===j)mem.push(i)});if(!mem.length)return m;var best=m,bc=1e18;mem.forEach(function(c){var s=0;mem.forEach(function(o){s+=Math.sqrt(d2(P[c],P[o]))});if(s<bc){bc=s;best=c;}});return best;});
+    if(nm.join()===M.join())break;M=nm;}
+  return {M:M,C:M.map(function(m){return P[m]}),a:a};}
+/* ── DBSCAN: 반지름 eps 안에 이웃이 minPts개 이상이면 핵심 점. −1은 잡음 ── */
+function dbscan(P,eps,minPts){var n=P.length,lab=new Array(n).fill(-2),e2=eps*eps,c=-1;
+  function nb(i){var o=[];for(var j=0;j<n;j++)if(d2(P[i],P[j])<=e2)o.push(j);return o;}
+  for(var i=0;i<n;i++){if(lab[i]!==-2)continue;var N0=nb(i);if(N0.length<minPts){lab[i]=-1;continue;}c++;lab[i]=c;var Q=N0.slice();
+    while(Q.length){var q=Q.shift();if(lab[q]===-1)lab[q]=c;if(lab[q]!==-2)continue;lab[q]=c;var Nq=nb(q);if(Nq.length>=minPts)Q=Q.concat(Nq);}}
+  return {a:lab,k:c+1,noise:lab.filter(function(v){return v<0}).length};}
+/* ── 계층적 군집 (병합, 평균 연결). merges[t] = [a,b,높이] ── */
+function agglo(P,link){var n=P.length,cl=P.map(function(_,i){return {id:i,m:[i]}}),merges=[],D={};
+  function dist(A,B){var s=link==='single'?1e18:0;A.m.forEach(function(i){B.m.forEach(function(j){var v=Math.sqrt(d2(P[i],P[j]));if(link==='single')s=Math.min(s,v);else s+=v;});});return link==='single'?s:s/(A.m.length*B.m.length);}
+  var nid=n;while(cl.length>1){var bi=0,bj=1,bd=1e18;for(var i=0;i<cl.length;i++)for(var j=i+1;j<cl.length;j++){var key=cl[i].id+','+cl[j].id;if(D[key]==null)D[key]=dist(cl[i],cl[j]);if(D[key]<bd){bd=D[key];bi=i;bj=j;}}
+    var A=cl[bi],B=cl[bj],C={id:nid++,m:A.m.concat(B.m)};merges.push([A.id,B.id,bd,C.id]);cl.splice(bj,1);cl.splice(bi,1);cl.push(C);}
+  function cut(k){var lab=P.map(function(_,i){return i}),grp={};for(var i=0;i<n;i++)grp[i]=[i];for(var t=0;t<n-k;t++){var m=merges[t];grp[m[3]]=grp[m[0]].concat(grp[m[1]]);delete grp[m[0]];delete grp[m[1]];}
+    var c=0;Object.keys(grp).forEach(function(g){grp[g].forEach(function(i){lab[i]=c});c++;});return lab;}
+  return {merges:merges,cut:cut};}
+/* ── 가우스 혼합 (EM, 축 방향 분산) ── */
+function gmm(P,k,seed,iters){var km=kmeans(P,k,seed,10),d=P[0].length,mu=km.C.map(function(c){return c.slice()}),va=mu.map(function(){return new Array(d).fill(1)}),pi=mu.map(function(){return 1/k}),Rr=[];
+  for(var it=0;it<(iters||60);it++){Rr=P.map(function(p){var l=mu.map(function(m,j){var s=Math.log(pi[j]);for(var q=0;q<d;q++)s+=-.5*Math.log(2*Math.PI*va[j][q])-(p[q]-m[q])*(p[q]-m[q])/(2*va[j][q]);return s;}),mx=Math.max.apply(null,l),e=l.map(function(v){return Math.exp(v-mx)}),t=e.reduce(function(a,b){return a+b},0);return e.map(function(v){return v/t});});
+    for(var j=0;j<k;j++){var nj=0;Rr.forEach(function(rw){nj+=rw[j]});pi[j]=nj/P.length;for(var q=0;q<d;q++){var m=0;P.forEach(function(p,i){m+=Rr[i][j]*p[q]});m/=nj;var v=0;P.forEach(function(p,i){v+=Rr[i][j]*(p[q]-m)*(p[q]-m)});mu[j][q]=m;va[j][q]=v/nj+1e-4;}}}
+  return {mu:mu,va:va,pi:pi,R:Rr,a:Rr.map(function(rw){return rw.indexOf(Math.max.apply(null,rw))})};}
+/* 군집 번호와 정답의 겹침 (군집 수가 달라도: 군집마다 다수 정답으로 이름 붙이기) */
+function purity(a,t){var m={};a.forEach(function(v,i){if(v<0)return;m[v]=m[v]||{};m[v][t[i]]=(m[v][t[i]]||0)+1;});var s=0;Object.keys(m).forEach(function(k){s+=Math.max.apply(null,Object.values(m[k]));});return s/a.length;}
+/* ── Q-러닝 (격자 미로). 행동 0↑ 1→ 2↓ 3← ── */
+function qgrid(n,walls,goal,start,opt){opt=opt||{};var al=opt.alpha==null?.5:opt.alpha,ga=opt.gamma==null?.9:opt.gamma,ep=opt.eps==null?.2:opt.eps,r=R(opt.seed||1),Q=[],hist=[],snaps=[];
+  for(var s=0;s<n*n;s++)Q.push([0,0,0,0]);var W={};(walls||[]).forEach(function(w){W[w]=1});var DX=[0,1,0,-1],DY=[-1,0,1,0];
+  function move(s,a){var x=s%n,y=Math.floor(s/n),nx=x+DX[a],ny=y+DY[a];if(nx<0||ny<0||nx>=n||ny>=n||W[ny*n+nx])return [s,-1];var ns=ny*n+nx;return [ns,ns===goal?10:-0.1];}
+  for(var e=0;e<(opt.episodes||200);e++){var s=start,steps=0;while(s!==goal&&steps<(opt.maxSteps||4*n*n)){var a;if(r()<ep)a=Math.floor(r()*4);else{var q=Q[s],m=Math.max.apply(null,q),c=[];q.forEach(function(v,i){if(v===m)c.push(i)});a=c[Math.floor(r()*c.length)];}
+      var o=move(s,a),ns=o[0],rw=o[1],tg=rw+(ns===goal?0:ga*Math.max.apply(null,Q[ns]));Q[s][a]+=al*(tg-Q[s][a]);s=ns;steps++;}
+    hist.push(steps);if(opt.snapEvery&&(e+1)%opt.snapEvery===0)snaps.push(Q.map(function(q){return q.slice()}));}
+  function greedy(){var s=start,path=[s],seen={};while(s!==goal&&path.length<n*n*2){if(seen[s])break;seen[s]=1;var q=Q[s],a=q.indexOf(Math.max.apply(null,q));s=move(s,a)[0];path.push(s);}return {path:path,ok:s===goal};}
+  return {Q:Q,hist:hist,snaps:snaps,greedy:greedy,visited:Q.filter(function(q){return q.some(function(v){return v!==0})}).length};}
 /* ── 데이터 만들기 ── */
 function blobs(seed,specs){var r=R(seed),D=[];specs.forEach(function(s,ci){for(var i=0;i<s.n;i++)D.push({x:[s.c[0]+N(r)*s.s[0],s.c[1]+N(r)*s.s[1]],y:ci});});return D;}
-return {R:R,N:N,sig:sig,mean:mean,shuffle:shuffle,split:split,linfit:linfit,mae:mae,logfit:logfit,acc:acc,tree:tree,forest:forest,adaboost:adaboost,kmeans:kmeans,overlap:overlap,pca:pca,bandit:bandit,banditA:banditA,majority:majority,committeeSim:committeeSim,blobs:blobs};
+return {scaler:scaler,enet:enet,regTree:regTree,gbmReg:gbmReg,gbmClf:gbmClf,extraTrees:extraTrees,knn:knn,gnb:gnb,rff:rff,svm:svm,svr:svr,kmedoids:kmedoids,dbscan:dbscan,agglo:agglo,gmm:gmm,purity:purity,qgrid:qgrid,R:R,N:N,sig:sig,mean:mean,shuffle:shuffle,split:split,linfit:linfit,mae:mae,logfit:logfit,acc:acc,tree:tree,forest:forest,adaboost:adaboost,kmeans:kmeans,overlap:overlap,pca:pca,bandit:bandit,banditA:banditA,majority:majority,committeeSim:committeeSim,blobs:blobs};
 })();
 if(typeof module!=='undefined')module.exports=ML;
 

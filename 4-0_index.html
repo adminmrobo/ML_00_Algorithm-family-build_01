@@ -286,12 +286,18 @@ crest_sup:['KKKKKKKKKKKK','KUUUUUUUUUUK','KUUUEEEEUUUK','KUUEUUUUEUUK','KUEUUEEU
 crest_uns:['KKKKKKKKKKKK','KUUUUUUUUUUK','KUUUUEEUUUUK','KUUUUEEUUUUK','KUUUUUUUUUUK','KUUUUUUUUUUK','KUEEUUUUEEUK','KUEEUUUUEEUK','KUUUUUUUUUUK','KUUUUUUUUUUK','.KUUUUUUUUK.','..KUUUUUUK..','...KUUUUK...','....KKKK....'],
 crest_rl:['KKKKKKKKKKKK','KUUUUUUUUUUK','KUUUEEEEUUUK','KUUEEEKEEUUK','KUEEEKKKEEUK','KUEEEKEEEEUK','KUEEEKKKEEUK','KUEEEEEKEEUK','KUUEEKKKEUUK','KUUUEEKEUUUK','.KUUUUUUUUK.','..KUUUUUUK..','...KUUUUK...','....KKKK....'],
 crest_ens:['KKKKKKKKKKKK','KUUUUUUUUUUK','KUUEUUUUEUUK','KUEEEUUEEEUK','KEEEEEEEEEEK','KUUEUUUUEUUK','KUUEEUUEEUUK','KUUUEEEEUUUK','KUUUUEEUUUUK','KUUUEEEEUUUK','.KUUEUUEUUK.','..KUUUUUUK..','...KUUUUK...','....KKKK....'],
+scare:['....yyyy....','...yYYYYy...','.yyYYYYYYyy.','....cccc....','...cKccKc...','...cccccc...','....cKKc....','bbbbBBBBbbbb','...BWWWWB...','...BWSSWB...','...BWWWWB...','...BBBBBB...','....bbbb....','.....bb.....','.....bb.....','....bbbb....'],
+mouse:['.S........','SwS.......','.SSSSSS...','SSSSSSSS..','KSSSSSSSS.','.SSSSSSSSS','..d..d..dS','.........S'],
+tree:['...GGG...','..GGGGG..','.GGKGKGG.','GGGGGGGGG','GGGGGGGGG','.GGGGGGG.','..GGGGG..','....B....','...BBB...','....B....','...B.B...','..BB.BB..'],
+token:['...KKKK...','..KccccK..','..KcKKcK..','..KccccK..','...KKKK...','..KUUUUK..','.KUUUUUUK.','.KUEEEEUK.','.KUUUUUUK.','KUUUUUUUUK','KWWWWWWWWK','KKKKKKKKKK'],
+sweep2:['..G.G.G.......','...GGG........','....dddddd....','..ddDDDDDDdd..','.dDDDDDDDDDDd.','dDDDDGGDDDDDDd','dDDDDGGDDDDDDd','dYYYYYYYYYYYYd','dDDDDDDDDDDDDd','.dDDDDDDDDDDd.','..ddDDDDDDdd..','....dddddd....'],
+sweep3:['.........RR...','.........RRR..','.........K....','....ddddKd....','..ddDDDDKDdd..','.dDDDDDDDDDDd.','dDDDDGGDDDDDDd','dDDDDGGDDDDDDd','dYYYYYYYYYYYYd','dDDDDDDDDDDDDd','.dDDDDDDDDDDd.','..ddDDDDDDdd..','....dddddd....'],
 qmark:['.YYY.','Y...Y','...Y.','..Y..','.....','..Y..']};
 var cache={};
 function draw(kind,scale,col){var m=MAP[kind];if(!m)return null;var k=kind+scale+(col||'');if(cache[k])return cache[k];var h=m.length,w=m[0].length,c=document.createElement('canvas');c.width=w*scale;c.height=h*scale;var x=c.getContext('2d');
   for(var j=0;j<h;j++)for(var i=0;i<w;i++){var ch=m[j][i];if(ch==='.')continue;x.fillStyle=(col&&'UPG'.indexOf(ch)>=0)?col:PAL[ch];x.fillRect(i*scale,j*scale,scale,scale);}
   cache[k]=c;return c;}
-function el(kind,scale,label){var src=draw(kind,scale);var c=document.createElement('canvas');c.className='npc';c.width=src.width;c.height=src.height;c.getContext('2d').drawImage(src,0,0);
+function el(kind,scale,label,col){var src=draw(kind,scale,col);var c=document.createElement('canvas');c.className='npc';c.width=src.width;c.height=src.height;c.getContext('2d').drawImage(src,0,0);
   if(label){c.setAttribute('role','img');c.setAttribute('aria-label',label);}else c.setAttribute('aria-hidden','true');return c;}
 function crest(fam,scale,label){var col={sup:'#6f8fb5',uns:'#7aa063',rl:'#c99a3e',ens:'#a65d7d'}[fam];var src=draw('crest_'+fam,scale,col);var c=document.createElement('canvas');c.className='crest';c.width=src.width;c.height=src.height;c.getContext('2d').drawImage(src,0,0);
   if(label){c.setAttribute('role','img');c.setAttribute('aria-label',label);}else c.setAttribute('aria-hidden','true');return c;}
@@ -306,16 +312,16 @@ var EPISODES=[
  {n:'4-3',f:'4-3_unsupervised.html',t:'비지도 가문',plan:'r',ready:1},
  {n:'4-4',f:'4-4_reinforcement.html',t:'강화 가문',plan:'f',ready:1},
  {n:'4-5',f:'4-5_ensemble.html',t:'앙상블 연합',plan:'r',ready:1},
- {n:'4-6',f:'4-6_regression_seven.html',t:'회귀파 일곱',plan:'r',ready:0},
- {n:'4-7',f:'4-7_classification_eight.html',t:'분류파 여덟',plan:'r',ready:0},
- {n:'4-8',f:'4-8_unsupervised_nine.html',t:'비지도 아홉',plan:'f',ready:0},
- {n:'4-9',f:'4-9_rl_three.html',t:'강화 삼대',plan:'d',ready:0},
- {n:'4-10',f:'4-10_ensemble_lineage.html',t:'앙상블 계보',plan:'r',ready:0},
- {n:'4-11',f:'4-11_fair_rules.html',t:'가문의 규칙',plan:'x',ready:0},
- {n:'4-12',f:'4-12_supervised_metrics.html',t:'지도 가문의 장부',plan:'f',ready:0},
- {n:'4-13',f:'4-13_unsupervised_metrics.html',t:'비지도 가문의 장부',plan:'r',ready:0},
- {n:'4-14',f:'4-14_rl_metrics.html',t:'강화 가문의 장부',plan:'f',ready:0},
- {n:'4-15',f:'4-15_final_and_choice.html',t:'마지막 담판',plan:'d',ready:0}];
+ {n:'4-6',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-6_regression_seven.html',t:'회귀파 일곱',plan:'r',ready:1},
+ {n:'4-7',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-7_classification_eight.html',t:'분류파 여덟',plan:'r',ready:1},
+ {n:'4-8',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-8_unsupervised_nine.html',t:'비지도 아홉',plan:'f',ready:1},
+ {n:'4-9',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-9_rl_three.html',t:'강화 삼대',plan:'d',ready:1},
+ {n:'4-10',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_02/4-10_ensemble_lineage.html',t:'앙상블 계보',plan:'r',ready:1},
+ {n:'4-11',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-11_fair_rules.html',t:'가문의 규칙',plan:'x',ready:1},
+ {n:'4-12',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-12_supervised_metrics.html',t:'지도 가문의 장부',plan:'f',ready:1},
+ {n:'4-13',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-13_unsupervised_metrics.html',t:'비지도 가문의 장부',plan:'r',ready:1},
+ {n:'4-14',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-14_rl_metrics.html',t:'강화 가문의 장부',plan:'f',ready:1},
+ {n:'4-15',f:'https://adminmrobo.github.io/ML_00_Algorithm-family-build_03/4-15_final_and_choice.html',t:'마지막 담판',plan:'d',ready:1}];
 var PARTS=['1부 · 가계도','2부 · 명부','3부 · 회합'];
 var COLS=[['전체','회귀'],['지도','분류'],['비지도',''],['강화',''],['앙상블','']];
 function epIdx(n){for(var i=0;i<EPISODES.length;i++)if(EPISODES[i].n===n)return i;return -1;}
