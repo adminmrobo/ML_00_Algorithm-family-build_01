@@ -1,0 +1,153 @@
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="series" id="series" aria-label="알고리즘 패밀리 시리즈 목록"></div>
+    <div class="kicker">인공지능 알고리즘 패밀리 조직도 · 4-1<span class="fam">1부 · 가계도</span></div>
+    <canvas class="stagecv" id="heroCv" width="1100" height="340" role="img" aria-label="어두운 연구실 가운데에 머신러닝에서 네 가문(지도, 비지도, 강화, 앙상블)으로 갈라지는 조직도가 빛나고, 왼쪽에 초파리 연구원, 오른쪽에 Money-Robo가 서 있다"></canvas>
+    <div class="hero-grid">
+      <div>
+        <h1>가계도 — 무엇을 보고 배우나</h1>
+        <p class="lede" style="margin-top:14px">머신러닝 알고리즘은 이름만 수십 개다. 선형 회귀, SVM, K-Means, DBSCAN, PCA, Q-Learning, XGBoost…. 이름부터 외우면 금방 길을 잃는다.</p>
+        <p class="lede">이 편은 이름 대신 질문 하나로 지도를 그린다. <b>"이 알고리즘은 무엇을 보고 배우나?"</b> 정답이 붙은 데이터를 보면 지도학습, 데이터만 보면 비지도학습, 행동한 뒤 받는 보상을 보면 강화학습이다. 여기에 모델 여럿을 묶는 기술인 앙상블이 더해져 네 가문이 된다. 이 시리즈는 그 네 가문을 거느린 한 집안의 가계도다.</p>
+        <div class="chips" aria-label="10분 핵심 경로"><span class="muted">10분 핵심 경로</span><a href="#m2">02 조직도</a><span class="arr">→</span><a href="#m4">04 카드 배정</a><span class="arr">→</span><a href="#d1">담판</a></div>
+      </div>
+      <div>
+        <div class="sizebox">
+          <h3>이 집안의 크기</h3>
+          <div class="sizegrid">
+            <div class="nn"><b>4</b><span>가문 (지도·비지도·강화·앙상블 연합)</span></div>
+            <div class="nn"><b>6</b><span>파 (회귀·분류·군집·차원 축소·배깅·부스팅)</span></div>
+            <div class="nn"><b>34</b><span>조직원 (인포그래픽의 알고리즘 칸, 겹침 포함)</span></div>
+            <div class="nn"><b>15</b><span>구역 (3부 × 5편)</span></div>
+          </div>
+          <p class="foot">칸 수는 랜덤 포레스트·GBM처럼 두 가문에 함께 실린 알고리즘을 따로 센 값이다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cast" aria-label="등장인물 소개">
+      <div class="say doc"><img data-who="doc" data-mood="don" alt="" aria-hidden="true"><div class="bub"><span class="who">대부 박사 · 해설과 판정</span>네 가문의 대부로서 말하죠. 이 집안의 규칙은 하나예요. 열다섯 구역, 구역마다 한 번의 담판. 승패는 내가 아니라 데이터가 정합니다.</div></div>
+      <div class="say asst"><img data-who="asst" data-mood="ledger" alt="" aria-hidden="true"><div class="bub"><span class="who">참모 조수 · 장부 담당</span>담판 결과는 이 페이지가 직접 계산해요. 저는 숫자를 장부에 적고 세력도를 고쳐요. 장부를 열기 전에 누가 이길지 먼저 맞혀 보세요.</div></div>
+      <div class="say fly"><img data-who="fly" data-mood="fedora" alt="" aria-hidden="true"><div class="bub"><span class="who">초파리 연구원 · 의심하는 간부</span>조직원 40명 이름보다 질문 하나가 먼저야. 그리고 그 숫자, 처음 보는 장부로도 맞는지 꼭 확인할 거야.</div></div>
+      <div class="say robo"><img data-who="robo" data-mood="tux" alt="" aria-hidden="true"><div class="bub"><span class="who">Money-Robo · 장부 든 회계</span>크고 많은 쪽에 건다. 이번 시즌 구역은 내가 다 먹는다.</div></div>
+    </div>
+    <aside class="prereq" aria-label="먼저 읽으면 좋은 편">
+      <b>먼저 읽으면 좋은 편</b>
+      <span><a href="3-1_how_ai_works.html">3-1 AI는 어떻게 작동하나</a> — 사람이 특징을 정하는 머신러닝과 특징까지 배우는 딥러닝의 차이</span>
+      <span>같은 세로줄: <span class="soon">명부 → 4-6 회귀파 일곱 (준비 중)</span> · <span class="soon">회합 → 4-11 가문의 규칙 (준비 중)</span></span>
+    </aside>
+    <div id="partBand" class="hint" style="margin-top:16px"><b>1부 · 가계도 (숲 보기)</b> — 조직원 40명의 이름을 외우기 전에, 가문 넷부터. 1부 다섯 편(4-1~4-5)은 알고리즘 이름을 거의 꺼내지 않는다. 편마다 "이 가문은 무엇을 보고 배우나" 하나만 남긴다.</div>
+  </div>
+</header>
+
+<!-- ═══════════ 01 AI ⊃ ML ⊃ DL ═══════════ -->
+<section class="part" id="m1">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no">01</div>
+    <div class="en">AI · ML · DL</div>
+    <h2>대부의 집안 — 인공지능, 머신러닝, 딥러닝</h2>
+    <p class="lin">이 가계도는 가운데 동그라미 집안의 것이다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">그림 · 동그라미를 눌러 보기</span>
+      <div class="cwrap"><canvas class="fig" id="nestCv" aria-label="인공지능 안에 머신러닝, 머신러닝 안에 딥러닝이 들어 있는 겹친 동그라미. 고른 동그라미가 밝아진다"></canvas></div>
+      <div class="choice" style="margin-top:10px" role="group" aria-label="동그라미 고르기">
+        <button class="btn" data-v="ai" aria-pressed="false">인공지능</button><button class="btn" data-v="ml" aria-pressed="true">머신러닝</button><button class="btn" data-v="dl" aria-pressed="false">딥러닝</button>
+      </div>
+    </div>
+    <div class="card">
+      <span class="tag">고른 동그라미</span>
+      <div id="nestInfo" class="caption" style="margin-top:0" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="explain">
+    <h4>제목은 "인공지능"인데, 지도는 "머신러닝"이다</h4>
+    <p>바탕이 된 인포그래픽의 원래 제목은 머신러닝 알고리즘 가문도다. 머신러닝은 인공지능을 만드는 방법 가운데 "데이터에서 규칙을 배우는" 파다. 딥러닝은 따로 떨어진 다섯째 가문이 아니라, 층을 깊게 쌓은 신경망이라는 <b>도구</b>로서 여러 가문 안에 들어가 있다. 비지도학습의 오토인코더, 강화학습의 DQN이 그 예다.</p>
+    <p style="margin:0">오늘날 많이 쓰는 생성형 AI와 대규모 언어 모델은 이 조직도의 범위 밖이다. 그 뼈대는 <a href="3-8_attention_transformer.html">3-8 어텐션·트랜스포머</a>에서 다룬다. 정답 일부만 있는 반지도학습, 데이터 스스로 문제를 만드는 자기지도학습 같은 중간 가문도 있지만 이 시리즈에서는 이름만 짚는다.</p>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 02 인터랙티브 조직도 ═══════════ -->
+<section class="part" id="m2">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no">02</div>
+    <div class="en">The family tree</div>
+    <h2>가계도 — 네 가문, 여섯 파</h2>
+    <p class="lin">가문을 누르면 무엇을 보고 배우는지 열린다</p>
+  </div>
+  <div class="card">
+    <span class="tag">움직이는 가계도</span>
+    <div class="cwrap"><canvas class="fig wide" id="treeCv" aria-label="가운데 머신러닝에서 지도학습, 비지도학습, 강화학습, 앙상블 네 가문이 갈라지고, 각 가문 아래에 파와 알고리즘 수가 적힌 조직도. 고른 가문의 가지가 밝아진다"></canvas></div>
+    <div class="fambtns" role="group" aria-label="가문 고르기" style="margin-top:12px">
+      <button class="fambtn sup" data-v="sup" aria-pressed="true"><b>지도 가문</b><span>정답이 붙은 데이터</span></button>
+      <button class="fambtn uns" data-v="uns" aria-pressed="false"><b>비지도 가문</b><span>데이터만</span></button>
+      <button class="fambtn rl" data-v="rl" aria-pressed="false"><b>강화 가문</b><span>행동 후 보상</span></button>
+      <button class="fambtn ens" data-v="ens" aria-pressed="false"><b>앙상블 연합</b><span>모델 여럿의 의견</span></button>
+    </div>
+    <div class="caption" id="treeInfo" aria-live="polite"></div>
+  </div>
+  <div class="explain">
+    <h4>점선은 무엇인가</h4>
+    <p style="margin:0">앙상블에서 지도학습으로 이어진 점선은 "앙상블 기법으로 만든 지도학습 모델"이라는 뜻이다. 랜덤 포레스트, GBM, XGBoost는 인포그래픽에서도 지도학습의 분류·회귀 칸과 앙상블 칸 양쪽에 실려 있다. 실수가 아니라 이중 소속이다. 두 가문에 몸담은 조직원인 셈이다. 원본 인포그래픽 가운데에는 설명 없는 점선 화살표 두 개(분류 ↔ 머신러닝, 머신러닝 ↔ 군집)가 더 있는데, 뜻을 확인할 수 없어 이 그림에는 옮기지 않았다.</p>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 03 네 가문 비교 ═══════════ -->
+<section class="part" id="m3">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no">03</div>
+    <div class="en">Four families</div>
+    <h2>네 가문 비교 — 한 줄씩</h2>
+    <p class="lin">가문을 가르는 기준은 배우는 재료다</p>
+  </div>
+  <div class="card tw" style="padding:6px 12px">
+    <table class="tb">
+      <thead><tr><th>가문</th><th>배우는 재료</th><th>질문 형태</th><th>한 줄 비유</th><th>이 시리즈에서 다시 만나는 곳</th></tr></thead>
+      <tbody>
+        <tr><td><b style="color:var(--fam-sup)">지도 가문</b> (지도학습)</td><td>입력 X와 정답 y의 짝</td><td>"이건 무엇인가?" "얼마인가?"</td><td>답지가 있는 문제집</td><td>4-2 · 4-6 · 4-7 · 4-12</td></tr>
+        <tr><td><b style="color:var(--fam-uns)">비지도 가문</b> (비지도학습)</td><td>입력 X만</td><td>"비슷한 것끼리 묶이나?" "몇 개 축으로 줄일 수 있나?"</td><td>답지 없이 정리해 보기</td><td>4-3 · 4-8 · 4-13</td></tr>
+        <tr><td><b style="color:var(--fam-rl)">강화 가문</b> (강화학습)</td><td>행동한 뒤 받는 보상</td><td>"어떻게 행동해야 보상의 합이 큰가?"</td><td>해 보고 칭찬·꾸중 듣기</td><td>4-4 · 4-9 · 4-14</td></tr>
+        <tr><td><b style="color:var(--fam-ens)">앙상블 연합</b> (앙상블)</td><td>여러 모델의 의견</td><td>"여럿의 다수결이 혼자보다 낫나?"</td><td>위원회 투표</td><td>4-5 · 4-10 · 4-15</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pair">
+    <div><div class="ptag fly">의심하는 간부의 질문 <span class="str s2">부분</span></div><p>"초파리는 냄새와 전기충격을 짝지어 배워. 정답을 받는 셈이니 지도학습이야? 아니면 벌을 받으니 강화학습이야?" 좋은 질문이다. 생물의 학습은 가문 하나에 깔끔하게 들어가지 않는다. 이 시리즈에서는 이런 이야기를 비유 모음(공통 D)에만 적고, 본문은 알고리즘에 집중한다.</p></div>
+    <div><div class="ptag nn">알고리즘에서는</div><p>가문은 "데이터에 무엇이 들어 있나"로 정한다. 같은 문제라도 정답 열을 모았는지, 보상을 정해 두었는지에 따라 다른 가문의 방법을 쓰게 된다.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 04 데이터 카드 배정 ═══════════ -->
+<section class="part" id="m4">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no">04</div>
+    <div class="en">Card sorting</div>
+    <h2>신입 배정 — 이 데이터는 어느 가문으로?</h2>
+    <p class="lin">카드를 고르고, 가문·파 버튼을 누른다</p>
+  </div>
+  <div class="card">
+    <span class="tag">카드 여덟 장</span>
+    <div id="antHost"></div>
+    <div class="cards8" id="cards" role="group" aria-label="데이터 카드"></div>
+    <div class="slot" id="slots" role="group" aria-label="파 고르기">
+      <button class="btn fam sup" data-v="reg">지도 · 회귀</button><button class="btn fam sup" data-v="cls">지도 · 분류</button><button class="btn fam uns" data-v="clu">비지도 · 군집</button><button class="btn fam uns" data-v="dim">비지도 · 차원 축소</button><button class="btn fam rl" data-v="rl">강화학습</button>
+    </div>
+    <div class="caption" id="cardInfo" aria-live="polite">카드를 하나 고른 뒤, 아래에서 가문·파를 누르세요.</div>
+    <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;align-items:center"><button class="btn" id="cardReset">처음부터</button><span class="muted" id="cardScore" style="font-size:14px"></span></div>
+  </div>
+  <div class="explain">
+    <h4>헷갈리는 카드가 가르쳐 주는 것</h4>
+    <p style="margin:0">"내일 매출"은 숫자를 맞히면 회귀, "목표를 넘을까"를 맞히면 분류다. 데이터는 같다. 달라진 것은 <b>질문</b>뿐이다. 아래 담판이 바로 이 카드다.</p>
+  </div>
+
+  <div class="duel" id="d1"></div>
+  <h3 style="margin:26px 0 10px">✓ 확인 문제</h3>
+  <div class="quiz" data-quiz="q1"></div>
+</div>
+</section>

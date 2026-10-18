@@ -1,0 +1,130 @@
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="series" id="series" aria-label="알고리즘 패밀리 시리즈 목록"></div>
+    <div class="kicker">인공지능 알고리즘 패밀리 조직도 · 4-3<span class="fam fam-uns">1부 가계도 · 비지도 가문</span></div>
+    <canvas class="stagecv" id="heroCv" width="1100" height="340" role="img" aria-label="어두운 서버실 가운데에서 회색 점들이 스스로 세 무리로 모이고, 무리마다 중심점이 자리를 잡는다. 왼쪽에 초파리 연구원, 오른쪽에 Money-Robo가 서 있다"></canvas>
+    <div class="hero-grid">
+      <div>
+        <h1>비지도 가문 — 정답 없이 숨은 구조를 찾는다</h1>
+        <p class="lede" style="margin-top:14px">쇼핑몰에 고객 180명의 기록이 있다. 한 달 방문 횟수와 한 번에 쓰는 돈. 그런데 "이 고객은 VIP"라는 정답 열은 없다. 지도학습이라면 여기서 멈춘다.</p>
+        <p class="lede">비지도학습은 정답 없이 데이터끼리의 거리와 퍼짐만 본다. 비슷한 것끼리 <b>묶거나</b>(군집), 특징 여러 개를 더 적은 축으로 <b>줄인다</b>(차원 축소). 대신 채점이 어렵다. 맞혔는지 알려 줄 정답이 없기 때문이다.</p>
+        <div class="chips" aria-label="10분 핵심 경로"><span class="muted">10분 핵심 경로</span><a href="#m2">02 군집</a><span class="arr">→</span><a href="#m3">03 차원 축소</a><span class="arr">→</span><a href="#d3">담판</a></div>
+      </div>
+      <div>
+        <div class="sizebox">
+          <h3>비지도 가문의 재료</h3>
+          <div class="sizegrid">
+            <div class="nn"><b>X</b><span>입력만. 정답 y가 없다</span></div>
+            <div class="nn"><b>180</b><span>이 편의 고객 수 (예시)</span></div>
+            <div class="nn"><b>5</b><span>군집파 조직원</span></div>
+            <div class="nn"><b>4</b><span>차원축소파 조직원</span></div>
+          </div>
+          <p class="foot">아홉 알고리즘 하나하나는 2부 조직원 명부 4-8 비지도 아홉에서 만난다. 정답 없이 재는 법은 3부 4-13에서 다룬다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cast" aria-label="등장인물">
+      <div class="say asst"><img data-who="asst" data-mood="ledger" alt="" aria-hidden="true"><div class="bub"><span class="who">참모 조수</span>이번엔 정답 열이 없어요. 대신 제가 고객 등급을 따로 장부에 적어 금고에 넣어 뒀어요. 담판이 끝나면 그걸 열어서 채점할게요.</div></div>
+      <div class="say fly"><img data-who="fly" data-mood="point" alt="" aria-hidden="true"><div class="bub"><span class="who">초파리 연구원</span>정답이 없는데 무슨 수로 믿어? 나는 내가 아는 기준 하나로 나눌 거야.</div></div>
+      <div class="say robo"><img data-who="robo" data-mood="count" alt="" aria-hidden="true"><div class="bub"><span class="who">Money-Robo</span>정답이 없어도 돈 쓰는 패턴은 숫자에 다 있어. 알고리즘한테 맡겨.</div></div>
+    </div>
+    <aside class="prereq" aria-label="먼저 읽으면 좋은 편">
+      <b>먼저 읽으면 좋은 편</b>
+      <span><a href="4-2_supervised.html#m3">4-2 지도 가문 · 03 훈련과 검증</a> — 정답이 있으면 채점할 수 있다는 것</span>
+      <span>같은 세로줄: <span class="soon">명부 → 4-8 비지도 아홉 (준비 중)</span> · <span class="soon">회합 → 4-13 비지도 가문의 장부 (준비 중)</span></span>
+    </aside>
+  </div>
+</header>
+
+<!-- ═══════════ 01 정답 없이 ═══════════ -->
+<section class="part" id="m1">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no uns">01</div>
+    <div class="en">No labels</div>
+    <h2>정답 없이 배우기 — 색을 지우면 무엇이 남나</h2>
+    <p class="lin">정답이 사라져도 데이터의 모양은 남는다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">고객 180명 · 정답 보기와 가리기</span>
+      <div class="cwrap"><canvas class="fig" id="hideCv" aria-label="가로축 한 달 방문 횟수, 세로축 평균 결제액인 고객 180명의 점. 정답을 보이면 일반·단골·VIP 세 색, 가리면 모두 회색"></canvas></div>
+      <div class="pills" role="group" aria-label="정답 보기" style="margin-top:8px"><button data-v="show" aria-pressed="false">정답(등급) 보이기</button><button data-v="hide" aria-pressed="true">정답 가리기</button></div>
+    </div>
+    <div class="card">
+      <span class="tag">이야기</span>
+      <div id="guestHost"></div>
+      <p>회색 점만 보아도 무리가 세 덩어리쯤 보인다. 방문은 적고 결제도 적은 무리, 자주 오지만 조금씩 쓰는 무리, 한 번에 많이 쓰는 무리. 사람 눈은 이 정도는 금방 찾는다.</p>
+      <p>그런데 특징이 두 개가 아니라 스무 개라면? 눈으로 그릴 수 없다. 비지도학습은 이 일을 계산으로 한다. 점 사이의 <b>거리</b>를 재서 가까운 것끼리 묶고(군집), 점들이 가장 넓게 퍼진 <b>방향</b>을 찾아 그쪽으로 펼친다(차원 축소).</p>
+      <p style="margin:0">대신 결과에 이름은 없다. 알고리즘은 "무리 0, 1, 2"까지만 말한다. 그 무리를 "VIP"라고 부를지는 사람이 정한다.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 02 군집 ═══════════ -->
+<section class="part" id="m2">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no uns">02</div>
+    <div class="en">Clustering · K-Means</div>
+    <h2>군집 — 중심을 옮기며 무리를 찾는다</h2>
+    <p class="lin">가까운 중심에 붙고, 중심을 무리 한가운데로 옮긴다</p>
+  </div>
+  <div class="card runner">
+    <span class="tag">K-평균(K-Means) 한 단계씩</span>
+    <div class="cwrap"><canvas class="fig wide" id="kmCv" aria-label="고객 점들이 가장 가까운 중심의 색으로 칠해지고, 중심 별이 자기 무리의 한가운데로 옮겨 가는 과정"></canvas></div>
+    <div class="ctrls"><button class="btn go" id="kmStep">한 단계 ▶</button><button class="btn" id="kmAuto">끝까지 자동</button><button class="btn" id="kmReset">처음으로</button>
+      <span class="muted" style="font-size:14px">무리 수 k</span><div class="pills" role="group" aria-label="무리 수"><button data-v="2" aria-pressed="false">2</button><button data-v="3" aria-pressed="true">3</button><button data-v="4" aria-pressed="false">4</button></div></div>
+    <div class="caption" id="kmInfo" aria-live="polite"></div>
+  </div>
+  <div class="explain">
+    <h4>K-평균이 하는 일은 두 가지뿐</h4>
+    <p style="margin:0">① 점마다 가장 가까운 중심의 무리에 넣는다. ② 중심을 자기 무리 점들의 평균 자리로 옮긴다. 더는 바뀌지 않을 때까지 되풀이한다. 무리 수 k는 사람이 정한다. 두 특징의 단위가 다르면(횟수와 만 원) 큰 쪽이 거리를 좌우하므로, 계산 전에 단위를 맞춘다(표준화). 이 그림도 표준화한 거리로 계산했다.</p>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 03 차원 축소 ═══════════ -->
+<section class="part" id="m3">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no uns">03</div>
+    <div class="en">Dimensionality reduction · PCA</div>
+    <h2>차원 축소 — 가장 넓게 퍼진 방향으로 펼친다</h2>
+    <p class="lin">특징 세 개를 축 두 개로</p>
+  </div>
+  <div class="two">
+    <div class="card runner">
+      <span class="tag">점 구름 돌리기 → 펼치기</span>
+      <div class="cwrap"><canvas class="fig" id="pcaCv" aria-label="방문 횟수, 결제액, 머문 시간 세 축의 점 구름이 돌다가, 버튼을 누르면 가장 넓게 퍼진 두 방향의 평면으로 눌려 펼쳐진다"></canvas></div>
+      <div class="ctrls"><button class="btn go" id="pcaGo">평면으로 펼치기</button><button class="btn" id="pcaBack">다시 3차원으로</button></div>
+    </div>
+    <div class="card">
+      <span class="tag">축마다 담긴 퍼짐 (실제 계산값)</span>
+      <div class="bars" id="pcaBars"></div>
+      <p style="margin-top:12px">세 특징(방문 횟수, 결제액, 머문 시간)은 서로 얽혀 있다. 자주 오는 사람은 오래 머물고, 많이 쓰는 사람도 오래 머문다. 그래서 새 축 하나만으로도 퍼짐의 대부분이 담긴다.</p>
+      <p style="margin:0">이 방법을 주성분 분석(PCA)이라 부른다. 가장 넓게 퍼진 방향(첫째 축)을 찾고, 그와 직각인 방향 가운데 다음으로 넓은 방향(둘째 축)을 찾는다. 축 두 개면 화면에 그릴 수 있다.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 04 정답 가리고 맞히기 ═══════════ -->
+<section class="part" id="m4">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no uns">04</div>
+    <div class="en">Hide the answers</div>
+    <h2>정답 가리고 맞혀 보기 — 그래도 무리가 보이나</h2>
+    <p class="lin">숨겨 둔 등급으로 나중에 채점한다</p>
+  </div>
+  <div class="explain">
+    <h4>채점은 어떻게 하나</h4>
+    <p style="margin:0">알고리즘이 붙인 무리 번호(0, 1, 2)에는 이름이 없다. 그래서 숨겨 둔 등급(일반·단골·VIP)과 번호를 가장 잘 맞도록 짝지은 뒤, 몇 명이 같은 칸에 들어갔는지 센다. 이것을 겹침 비율이라 부르자. 실제 일에서는 숨겨 둔 정답이 없는 경우가 대부분이다. 그때 쓰는 채점법은 4-13에서 다룬다.</p>
+  </div>
+  <div class="duel" id="d3"></div>
+  <h3 style="margin:26px 0 10px">✓ 확인 문제</h3>
+  <div class="quiz" data-quiz="q3"></div>
+</div>
+</section>

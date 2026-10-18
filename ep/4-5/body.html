@@ -1,0 +1,145 @@
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="series" id="series" aria-label="알고리즘 패밀리 시리즈 목록"></div>
+    <div class="kicker">인공지능 알고리즘 패밀리 조직도 · 4-5<span class="fam fam-ens">1부 가계도 · 앙상블 연합</span></div>
+    <canvas class="stagecv" id="heroCv" width="1100" height="340" role="img" aria-label="보랏빛 불꽃이 이는 연구실 가운데에 작은 나무 아홉 그루가 저마다 표를 던지고, 다수결 결과가 위에 빛난다. 왼쪽에 초파리 연구원, 오른쪽에 Money-Robo가 서 있다"></canvas>
+    <div class="hero-grid">
+      <div>
+        <h1>앙상블 연합 — 혼자보다 여럿이 낫다</h1>
+        <p class="lede" style="margin-top:14px">앙상블은 데이터 종류로 나뉜 가문이 아니라, 여러 가문의 조직원이 손잡은 <b>연합</b>이다. 이미 있는 모델 <b>여럿을 묶는 기술</b>이다. 같은 문제를 여러 모델에게 풀게 하고, 답을 평균하거나 투표로 정한다.</p>
+        <p class="lede">묶는 방법은 크게 둘이다. 데이터를 조금씩 다르게 뽑아 여러 모델을 <b>동시에</b> 키우는 배깅, 앞 모델이 틀린 곳을 다음 모델이 고치도록 <b>차례로</b> 쌓는 부스팅. 하나는 들쭉날쭉함을, 하나는 한쪽으로 치우친 오차를 줄인다.</p>
+        <div class="chips" aria-label="10분 핵심 경로"><span class="muted">10분 핵심 경로</span><a href="#m1">01 배깅</a><span class="arr">→</span><a href="#m2">02 부스팅</a><span class="arr">→</span><a href="#d5">담판</a></div>
+      </div>
+      <div>
+        <div class="sizebox">
+          <h3>앙상블 연합의 재료</h3>
+          <div class="sizegrid">
+            <div class="nn"><b>모델 여럿</b><span>보통 결정 트리</span></div>
+            <div class="nn"><b>평균·투표</b><span>여럿의 답을 하나로</span></div>
+            <div class="nn"><b>3</b><span>인포그래픽의 배깅 칸 (배깅·랜덤 포레스트·Extra Trees)</span></div>
+            <div class="nn"><b>4</b><span>인포그래픽의 부스팅 칸 (GBM·XGBoost·LightGBM·CatBoost)</span></div>
+          </div>
+          <p class="foot">랜덤 포레스트·GBM·XGBoost는 인포그래픽의 지도학습 칸에도 실려 있다. 앙상블 기법으로 만든 지도학습 모델이기 때문이다. 계보는 2부 4-10에서 본다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cast" aria-label="등장인물">
+      <div class="say doc"><img data-who="doc" data-mood="don" alt="" aria-hidden="true"><div class="bub"><span class="who">대부 박사</span>1부의 마지막은 연합의 회의, 다수결입니다. 여럿이 모이면 정말 똑똑해질까요? 조건이 하나 있습니다.</div></div>
+      <div class="say robo"><img data-who="robo" data-mood="stack" alt="" aria-hidden="true"><div class="bub"><span class="who">Money-Robo</span>분산 투자의 원리지. 위원 스물다섯 명이면 한 명보다 훨씬 낫다.</div></div>
+      <div class="say fly"><img data-who="fly" data-mood="point" alt="" aria-hidden="true"><div class="bub"><span class="who">초파리 연구원</span>스물다섯 명이 다 같은 실수를 하면? 그럼 한 명이랑 뭐가 달라.</div></div>
+    </div>
+    <aside class="prereq" aria-label="먼저 읽으면 좋은 편">
+      <b>먼저 읽으면 좋은 편</b>
+      <span><a href="4-2_supervised.html#m3">4-2 지도 가문 · 03 훈련과 검증</a> — 결정 트리와 과적합. 이 편의 배깅이 그 트리를 묶는다</span>
+      <span>같은 세로줄: <span class="soon">명부 → 4-10 앙상블 계보 (준비 중)</span> · <span class="soon">회합 → 4-15 마지막 담판 (준비 중)</span></span>
+    </aside>
+  </div>
+</header>
+
+<!-- ═══════════ 01 배깅 ═══════════ -->
+<section class="part" id="m1">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no ens">01</div>
+    <div class="en">Bagging</div>
+    <h2>배깅 — 조금씩 다른 나무 여럿의 투표</h2>
+    <p class="lin">다시 뽑고, 따로 키우고, 투표한다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>4-2의 물결 데이터(정답 15%가 잘못 적힘)를 다시 쓴다. 끝까지 키운 결정 트리 한 그루는 잡음까지 외워 경계가 들쭉날쭉했다. 게다가 훈련 데이터를 조금만 바꿔도 경계가 크게 달라진다. 이 흔들림을 <b>분산</b>이라 부른다.</p>
+      <p>배깅은 훈련 데이터에서 <b>중복을 허락해 같은 수만큼 다시 뽑는다</b>. 뽑을 때마다 조금씩 다른 데이터가 생기고, 그걸로 트리를 따로 키운다. 25그루가 저마다 다르게 틀리니, 투표하면 틀린 몫이 서로 상쇄된다.</p>
+      <p style="margin:0">"다시 뽑기"를 눌러 보자. 한 그루의 경계는 매번 크게 바뀌지만, 25그루의 투표 경계는 덜 흔들린다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">한 그루 vs 25그루의 투표 (훈련 점만 표시)</span>
+      <div class="two" style="gap:10px"><figure style="margin:0"><canvas class="fig" id="bgA" aria-label="다시 뽑은 데이터로 키운 트리 한 그루의 경계"></canvas><figcaption class="muted" style="font-size:13px" id="bgAc"></figcaption></figure><figure style="margin:0"><canvas class="fig" id="bgB" aria-label="트리 25그루의 다수결 경계"></canvas><figcaption class="muted" style="font-size:13px" id="bgBc"></figcaption></figure></div>
+      <div class="ctrls"><button class="btn go" id="bgRe">다시 뽑기 ↻</button><span class="muted" style="font-size:13.5px" id="bgSeed"></span></div>
+      <div class="bars" id="bgBars" style="margin-top:10px"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 02 부스팅 ═══════════ -->
+<section class="part" id="m2">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no ens">02</div>
+    <div class="en">Boosting</div>
+    <h2>부스팅 — 틀린 곳에 무게를 두고 차례로</h2>
+    <p class="lin">오답 노트를 넘겨받는 약한 모델의 연쇄</p>
+  </div>
+  <div class="two">
+    <div class="card runner">
+      <span class="tag">질문 하나짜리 트리(그루터기)를 차례로 쌓기</span>
+      <div class="cwrap"><canvas class="fig" id="bsCv" aria-label="원 안과 밖으로 나뉜 점 80개. 그루터기를 쌓을수록 경계가 원 모양에 가까워지고, 틀린 점일수록 크게 그려진다"></canvas></div>
+      <label for="bsSl" style="display:block;font-size:14px;color:var(--muted);margin-top:8px">쌓은 그루터기 수: <b id="bsVal" class="num" style="color:var(--text)">1</b></label>
+      <input type="range" id="bsSl" min="1" max="30" step="1" value="1">
+      <div class="caption" id="bsInfo" aria-live="polite"></div>
+    </div>
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>그루터기는 질문 하나("x가 0.3보다 큰가?")로 끝나는 아주 약한 트리다. 혼자서는 원 모양 경계를 절대 그리지 못한다. 직선 한 번으로 자르기만 하기 때문이다. 이렇게 단순해서 생기는 체계적인 오차를 <b>편향</b>이라 부른다.</p>
+      <p>부스팅은 첫 그루터기가 틀린 점에 무게를 더 얹고, 다음 그루터기가 그 점들을 더 신경 쓰게 한다. 점의 크기가 그 무게다. 그렇게 쌓은 그루터기들이 저마다 무게를 달고 투표한다. 여기서 쓴 방식은 AdaBoost다.</p>
+      <p style="margin:0">슬라이더를 오른쪽으로 옮겨 보자. 직선 조각들이 모여 원을 닮아 간다. 다만 너무 많이 쌓으면 잡음 점까지 쫓아가는 과적합이 올 수 있다.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 03 다트판 ═══════════ -->
+<section class="part" id="m3">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no ens">03</div>
+    <div class="en">Bias &amp; variance</div>
+    <h2>분산과 편향 — 다트판 두 개</h2>
+    <p class="lin">배깅은 흩어짐을, 부스팅은 치우침을 고친다</p>
+  </div>
+  <div class="card">
+    <span class="tag">개념 도식 · 다트 하나 = 데이터를 바꿔 다시 학습한 모델 하나의 답</span>
+    <div class="cwrap"><canvas class="fig" id="dtbCv" aria-label="왼쪽 다트판은 과녁 중심 둘레로 넓게 흩어진 다트(높은 분산), 오른쪽 다트판은 한쪽에 몰린 다트(높은 편향). 버튼을 누르면 왼쪽은 배깅으로 모이고 오른쪽은 부스팅으로 중심에 다가간다"></canvas></div>
+    <div class="pills" role="group" aria-label="고치기" style="margin-top:8px"><button data-v="0" aria-pressed="true">그대로</button><button data-v="1" aria-pressed="false">배깅·부스팅 적용</button></div>
+  </div>
+  <div class="pair">
+    <div><div class="ptag nn">높은 분산 → 배깅</div><p>깊은 트리처럼 데이터에 민감한 모델. 평균은 맞지만 한 번 한 번이 크게 흔들린다. 여럿의 평균을 내면 흔들림이 준다.</p></div>
+    <div><div class="ptag nn">높은 편향 → 부스팅</div><p>그루터기처럼 너무 단순한 모델. 매번 같은 쪽으로 틀린다. 틀린 곳을 차례로 고쳐 쌓으면 치우침이 준다.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 04 위원 수 ═══════════ -->
+<section class="part" id="m4">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no ens">04</div>
+    <div class="en">The committee</div>
+    <h2>위원 수 — 다수결은 언제 강해지나</h2>
+    <p class="lin">정답률 60%짜리 위원을 늘려 본다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">다수결 정답률 곡선</span>
+      <div class="cwrap"><canvas class="fig" id="cmCv" aria-label="위원 수를 1에서 51까지 늘릴 때 다수결 정답률. 위원이 서로 독립이면 곡선이 올라가고, 같은 실수를 함께 하면 거의 오르지 않는다"></canvas></div>
+      <div class="legend"><span><i style="background:var(--gfp)"></i>서로 독립 (계산식)</span><span><i style="background:var(--eye)"></i>같은 실수를 함께 하는 몫 ρ</span></div>
+    </div>
+    <div class="card">
+      <span class="tag">조절</span>
+      <label for="cmP" style="display:block;font-size:14px;color:var(--muted)">위원 한 명의 정답률 p: <b id="cmPv" class="num" style="color:var(--text)">0.60</b></label><input type="range" id="cmP" min="0.45" max="0.8" step="0.01" value="0.6">
+      <label for="cmR" style="display:block;font-size:14px;color:var(--muted);margin-top:8px">같은 실수를 함께 하는 몫 ρ: <b id="cmRv" class="num" style="color:var(--text)">0.00</b></label><input type="range" id="cmR" min="0" max="1" step="0.05" value="0">
+      <div class="caption" id="cmInfo" aria-live="polite"></div>
+      <p class="muted" style="font-size:13.5px;margin-top:8px">ρ의 뜻: 문제마다 위원 한 명 한 명이 ρ의 확률로 "공통 의견"을 그대로 따르고, 나머지는 각자 판단한다. 빨간 곡선은 문제 2,000개로 흉내 낸 값이다.</p>
+    </div>
+  </div>
+  <div class="explain">
+    <h4>정답률이 0.5보다 낮으면?</h4>
+    <p style="margin:0">p를 0.45로 내려 보자. 위원을 늘릴수록 다수결은 오히려 더 틀린다. 다수결은 "한 명 한 명이 동전 던지기보다는 낫다"는 조건에서만 힘을 쓴다. 그리고 ρ를 올려 보자. 위원들이 같은 실수를 할수록 곡선이 눕는다. 배깅이 데이터를 다시 뽑고, 랜덤 포레스트가 질문할 특징까지 무작위로 고르는 까닭이 여기에 있다. 위원들을 <b>일부러 다르게</b> 만드는 것이다.</p>
+  </div>
+
+  <div class="duel" id="d5"></div>
+  <h3 style="margin:26px 0 10px">✓ 확인 문제</h3>
+  <div class="quiz" data-quiz="q5"></div>
+</div>
+</section>

@@ -1,0 +1,119 @@
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="series" id="series" aria-label="알고리즘 패밀리 시리즈 목록"></div>
+    <div class="kicker">인공지능 알고리즘 패밀리 조직도 · 4-2<span class="fam fam-sup">1부 가계도 · 지도 가문</span></div>
+    <canvas class="stagecv" id="heroCv" width="1100" height="340" role="img" aria-label="칠판 앞 연구실 가운데에 점 구름 위로 회귀선이 그어지고 옆에는 파란 점과 빨간 점 사이에 경계선이 그어진다. 왼쪽에 초파리 연구원, 오른쪽에 Money-Robo가 서 있다"></canvas>
+    <div class="hero-grid">
+      <div>
+        <h1>지도 가문 — 정답지를 보고 규칙을 찾는다</h1>
+        <p class="lede" style="margin-top:14px">문제와 정답을 짝지어 많이 보여 주면, 처음 보는 문제의 답을 맞히는 규칙을 배운다. 이것이 지도학습이다. 문제는 입력 X, 정답은 y라고 쓴다.</p>
+        <p class="lede">정답 y가 <b>숫자</b>면 회귀, <b>이름표</b>면 분류다. 그리고 지도학습에는 늘 따라붙는 함정이 하나 있다. 배운 문제를 외우기만 하면 처음 보는 문제에서 틀린다.</p>
+        <div class="chips" aria-label="10분 핵심 경로"><span class="muted">10분 핵심 경로</span><a href="#m2">02 y 바꾸기</a><span class="arr">→</span><a href="#m3">03 훈련과 검증</a><span class="arr">→</span><a href="#d2">담판</a></div>
+      </div>
+      <div>
+        <div class="sizebox">
+          <h3>지도 가문의 재료</h3>
+          <div class="sizegrid">
+            <div class="nn"><b>X</b><span>입력 (특징). 예: 광고비, 주말 여부</span></div>
+            <div class="nn"><b>y</b><span>정답. 예: 매출액, 목표 달성 여부</span></div>
+            <div class="nn"><b>7</b><span>회귀파 조직원</span></div>
+            <div class="nn"><b>8</b><span>분류파 조직원</span></div>
+          </div>
+          <p class="foot">조직원 하나하나의 신상 파일은 2부 조직원 명부(4-6 회귀파 일곱, 4-7 분류파 여덟)에서 연다. 이 편은 가문의 공통점만 본다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cast" aria-label="등장인물">
+      <div class="say doc"><img data-who="doc" data-mood="board" alt="" aria-hidden="true"><div class="bub"><span class="who">대부 박사</span>첫째 가문, 지도 가문입니다. 정답지를 보며 배우죠. 오늘은 그 정답을 외우기만 하면 무슨 일이 생기는지도 봅니다.</div></div>
+      <div class="say fly"><img data-who="fly" data-mood="point" alt="" aria-hidden="true"><div class="bub"><span class="who">초파리 연구원</span>외운 거랑 아는 거는 달라. 처음 보는 장부로 시험 봐야지.</div></div>
+      <div class="say robo"><img data-who="robo" data-mood="chart" alt="" aria-hidden="true"><div class="bub"><span class="who">Money-Robo</span>배운 문제를 100% 맞히면 그게 실력이지. 숫자가 말해 준다.</div></div>
+    </div>
+    <aside class="prereq" aria-label="먼저 읽으면 좋은 편">
+      <b>먼저 읽으면 좋은 편</b>
+      <span><a href="4-1_ml_family_map.html#m2">4-1 가계도 · 02 가계도</a> — 지도학습이 네 가문 가운데 어디에 있는지</span>
+      <span>같은 세로줄: <span class="soon">명부 → 4-6 회귀파 일곱 · 4-7 분류파 여덟 (준비 중)</span> · <span class="soon">회합 → 4-12 지도 가문의 장부 (준비 중)</span></span>
+    </aside>
+  </div>
+</header>
+
+<!-- ═══════════ 01 학습 흐름 ═══════════ -->
+<section class="part" id="m1">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">01</div>
+    <div class="en">Learning loop</div>
+    <h2>(X, y)와 학습 흐름 — 맞혀 보고, 재고, 고친다</h2>
+    <p class="lin">예측 → 정답과 비교 → 고치기, 그리고 반복</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>가게의 하루 광고비(X)와 그날 매출(y) 60일치가 있다. 모델은 "매출 = w × 광고비 + b"라는 직선이다. 처음에는 w와 b를 아무렇게나 정해 엉터리로 맞힌다.</p>
+      <p>그다음은 늘 같다. 60일 모두에 대해 예측하고, 정답과의 차이(오차)를 재고, 오차가 줄어드는 쪽으로 w와 b를 조금 고친다. 이 한 바퀴를 수백 번 되풀이하면 직선이 점 구름 한가운데로 들어간다.</p>
+      <p style="margin:0">정답이 있기 때문에 "얼마나 틀렸나"를 잴 수 있다. 이것이 지도학습의 핵심이다.</p>
+    </div>
+    <div class="card runner">
+      <span class="tag">움직이는 그림 · 직선이 자리를 찾아간다</span>
+      <div class="cwrap"><canvas class="fig" id="gdCv" aria-label="광고비와 매출 점 60개 위에서 직선이 반복할 때마다 기울기와 높이를 바꾸며 점 구름 가운데로 다가가고, 점마다 오차 막대가 그려진 그림"></canvas></div>
+      <div class="stepchips" id="gdFlow" aria-hidden="true"><button class="" tabindex="-1">① 예측</button><button tabindex="-1">② 정답과 비교</button><button tabindex="-1">③ 고치기</button><button tabindex="-1">④ 반복</button></div>
+      <div class="ctrls"><button class="btn go" id="gdPlay">▶ 학습</button><button class="btn" id="gdStep">한 바퀴</button><button class="btn" id="gdReset">처음으로</button></div>
+      <div class="stat" id="gdStat" style="margin-top:10px"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 02 회귀와 분류 ═══════════ -->
+<section class="part" id="m2">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">02</div>
+    <div class="en">Regression vs classification</div>
+    <h2>회귀와 분류 — y만 바꿔 본다</h2>
+    <p class="lin">같은 광고비 데이터, 다른 정답</p>
+  </div>
+  <div class="card">
+    <span class="tag">y 바꾸기</span>
+    <div class="pills" role="group" aria-label="정답 y 고르기"><button data-v="reg" aria-pressed="true">y = 매출액 (숫자)</button><button data-v="cls" aria-pressed="false">y = 목표 90만 원 달성? (이름표)</button></div>
+    <div class="cwrap" style="margin-top:10px"><canvas class="fig" id="ycv" aria-label="광고비를 가로축으로 둔 같은 데이터. 회귀에서는 매출 점 위에 직선, 분류에서는 달성과 미달 두 줄의 점과 달성 확률 곡선, 그리고 경계가 그려진다"></canvas></div>
+    <div class="caption" id="yInfo" aria-live="polite"></div>
+  </div>
+  <div class="pair">
+    <div><div class="ptag nn">회귀</div><p>답이 숫자다. "얼마나 빗나갔나"(평균 오차)로 잰다. 예: 매매가, 기온, 수요량.</p></div>
+    <div><div class="ptag nn">분류</div><p>답이 이름표다. "몇 개 맞혔나"(정확도 등)로 잰다. 확률을 낸 뒤 문턱(보통 0.5)으로 이름표를 정한다. 예: 정상/사기, 고양이/개.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 03 훈련과 검증 ═══════════ -->
+<section class="part" id="m3">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">03</div>
+    <div class="en">Train vs validation</div>
+    <h2>훈련과 검증 — 외운 것과 아는 것</h2>
+    <p class="lin">처음 보는 데이터로 재야 실력이 보인다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>점 300개를 파랑과 빨강 두 무리로 가른다. 경계는 물결 모양이고, 정답의 15%는 일부러 뒤집어 두었다. 실제 데이터에도 잘못 적힌 정답과 잡음이 섞이기 때문이다.</p>
+      <p>200개로 배우고(훈련), 배우는 동안 한 번도 보여 주지 않은 100개로 잰다(검증). 모델은 "예/아니오 질문"을 이어 붙이는 결정 트리다. 깊이를 키울수록 질문이 늘어 경계가 잘게 쪼개진다.</p>
+      <div id="owlHost"></div>
+      <p style="margin:0">슬라이더로 깊이를 바꿔 보자. 훈련 정확도는 깊이를 키울수록 100%로 간다. 검증 정확도는 어느 깊이에서 가장 높다가 다시 떨어진다. 그 차이가 <b>과적합</b>이다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">결정 트리의 경계 (훈련 점만 표시)</span>
+      <div class="cwrap"><canvas class="fig" id="dtCv" aria-label="평면 위 훈련 점 200개와 결정 트리가 나눈 파랑·빨강 영역. 깊이를 키우면 영역이 잘게 쪼개진다"></canvas></div>
+      <label for="dtSl" style="display:block;font-size:14px;color:var(--muted);margin-top:8px">트리 깊이: <b id="dtVal" class="num" style="color:var(--text)">3</b></label>
+      <input type="range" id="dtSl" min="1" max="12" step="1" value="3">
+      <div class="cwrap" style="margin-top:8px"><canvas class="fig" id="dcCv" aria-label="깊이 1부터 12까지 훈련 정확도와 검증 정확도 두 곡선"></canvas></div>
+      <div class="legend"><span><i style="background:var(--gfp)"></i>훈련 정확도</span><span><i style="background:var(--amber)"></i>검증 정확도</span></div>
+    </div>
+  </div>
+
+  <div class="duel" id="d2"></div>
+  <h3 style="margin:26px 0 10px">✓ 확인 문제</h3>
+  <div class="quiz" data-quiz="q2"></div>
+</div>
+</section>
