@@ -57,19 +57,19 @@ heroStage($('heroCv'),{bg:'sc_lab',bgY:.75,fly:'point',robo:'count',motif:functi
  onTick(cv,function(dt){if(flat<1&&target===0)ang+=dt*.5;flat+=(target-flat)*Math.min(1,dt*3);if(Math.abs(target-flat)<.002)flat=target;draw();});draw();onRedraw(draw);})();
 
 /* ── 담판 ── */
-function duelBox(o){return statGrid([[pct(o.fo),'초파리 · 결제액으로 3등분 · 등급과 겹침','f'],[pct(o.ko),'Money-Robo · K-평균 · 등급과 겹침','r']])+
-  '<div class="two" style="margin-top:12px"><figure style="margin:0"><canvas class="fig" id="cA" aria-label="결제액 문턱 두 개로 나눈 무리"></canvas><figcaption class="muted" style="font-size:13px">초파리 · 결제액 문턱 '+fx(o.q[0],1)+' · '+fx(o.q[1],1)+'만 원</figcaption></figure><figure style="margin:0"><canvas class="fig" id="cB" aria-label="K-평균이 찾은 무리"></canvas><figcaption class="muted" style="font-size:13px">Money-Robo · K-평균 (k = 3)</figcaption></figure></div>';}
+function duelBox(o){return statGrid([[pct(o.fo),'초파리 · 결제액으로 3등분 · 등급과 겹침','f'],[pct(o.ko),'주판봇 · K-평균 · 등급과 겹침','r']])+
+  '<div class="two" style="margin-top:12px"><figure style="margin:0"><canvas class="fig" id="cA" aria-label="결제액 문턱 두 개로 나눈 무리"></canvas><figcaption class="muted" style="font-size:13px">초파리 · 결제액 문턱 '+fx(o.q[0],1)+' · '+fx(o.q[1],1)+'만 원</figcaption></figure><figure style="margin:0"><canvas class="fig" id="cB" aria-label="K-평균이 찾은 무리"></canvas><figcaption class="muted" style="font-size:13px">주판봇 · K-평균 (k = 3)</figcaption></figure></div>';}
 function drawDuel(o,ida,idb){function dr(){[[ida,o.fa,o.q],[idb,o.ka,null]].forEach(function(s){var cv=$(s[0]);if(!cv)return;var H=230,W=fit(cv,H),ctx=cv.getContext('2d'),C=cols();ctx.clearRect(0,0,W,H);
   var perm=[0,1,2];var best=-1;[[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]].forEach(function(p){var c=0;s[1].forEach(function(a,i){if(p[a]===o.D[i].y)c++;});if(c>best){best=c;perm=p;}});
   scatter(ctx,W,H,o.D,function(d,i){var g=perm[s[1][i]];return g===d.y?gcol(C,g):C.eye;},{hlines:s[2]});});}setTimeout(dr,0);onRedraw(dr);}
 Duel('d3',{title:'정답 없이 고객 무리 찾기',q:'고객 180명을 세 무리로 나눈다. 정답(등급)은 조수만 안다. 나눈 결과가 숨겨 둔 등급과 얼마나 겹칠까?',
  fly:['결제액만 보고 3등분','돈 쓰는 크기가 등급이지. 기준이 분명해야 믿지.'],robo:['K-평균 (k = 3)','방문이랑 결제를 둘 다 넣고 알고리즘한테 맡겨.'],roboMood:'count',
  run:async function(p){p(.4);await wait(200);var o=UNS.duel(false);p(1);
-  return {winner:o.ko>o.fo?'r':(o.ko<o.fo?'f':'d'),big:false,measure:'금고를 열었어요. Money-Robo 쪽 무리는 등급과 '+pct(o.ko)+' 겹치고, 초파리 쪽은 '+pct(o.fo)+'예요. 빨간 점이 등급과 다른 무리에 들어간 고객이에요. 초파리 쪽은 결제액이 비슷한 일반 고객과 단골을 잘 못 가렸어요.',
-   verdict:'정답이 없어도 구조는 있다. 단골은 결제액이 아니라 방문 횟수로 갈리는 무리였다. 두 특징을 함께 본 쪽이 이겼다. 이 구역은 Money-Robo 쪽이다.',key:'정답 없이도 데이터의 모양에서 무리를 찾을 수 있다.',
+  return {winner:o.ko>o.fo?'r':(o.ko<o.fo?'f':'d'),big:false,measure:'금고를 열었어요. 주판봇 쪽 무리는 등급과 '+pct(o.ko)+' 겹치고, 초파리 쪽은 '+pct(o.fo)+'예요. 빨간 점이 등급과 다른 무리에 들어간 고객이에요. 초파리 쪽은 결제액이 비슷한 일반 고객과 단골을 잘 못 가렸어요.',
+   verdict:'정답이 없어도 구조는 있다. 단골은 결제액이 아니라 방문 횟수로 갈리는 무리였다. 두 특징을 함께 본 쪽이 이겼다. 이 구역은 주판봇 쪽이다.',key:'정답 없이도 데이터의 모양에서 무리를 찾을 수 있다.',
    render:function(box){box.innerHTML=duelBox(o)+'<p class="muted" style="font-size:13px;margin:6px 0 0">빨간 점 = 숨겨 둔 등급과 다른 무리에 들어간 고객</p>';drawDuel(o,'cA','cB');}};},
  alts:[{label:'무리가 결제액으로만 갈린다면?',run:async function(box){var o=UNS.duel(true);
-   box.innerHTML=statGrid([[pct(o.fo),'초파리 · 결제액으로 3등분','f'],[pct(o.ko),'Money-Robo · K-평균','r']])+'<div class="two" style="margin-top:12px"><canvas class="fig" id="cC" aria-label="결제액으로만 갈리는 데이터에서 초파리의 무리"></canvas><canvas class="fig" id="cD" aria-label="같은 데이터에서 K-평균의 무리"></canvas></div>'+
+   box.innerHTML=statGrid([[pct(o.fo),'초파리 · 결제액으로 3등분','f'],[pct(o.ko),'주판봇 · K-평균','r']])+'<div class="two" style="margin-top:12px"><canvas class="fig" id="cC" aria-label="결제액으로만 갈리는 데이터에서 초파리의 무리"></canvas><canvas class="fig" id="cD" aria-label="같은 데이터에서 K-평균의 무리"></canvas></div>'+
     say('fly','arms','봐, 등급이 정말 결제액으로만 갈리면 내 기준이 '+pct(o.fo)+'야. 방문 횟수는 등급과 상관없는 잡음일 뿐이니까.')+say('robo','wow','K-평균은 방문 횟수의 퍼짐까지 무리로 착각했네… '+pct(o.ko)+'.');drawDuel(o,'cC','cD');}},
   {label:'무리 수 k를 바꾸면?',run:async function(box){var rows=[1,2,3,4,5,6].map(function(k){var o=UNS.kbest(CZ,k);return [k,o.sse];});
    box.innerHTML='<div class="tw"><table class="tb"><thead><tr><th>k</th><th>무리 안 거리 제곱합</th></tr></thead><tbody>'+rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+fx(r[1],1)+'</td></tr>';}).join('')+'</tbody></table></div>'+

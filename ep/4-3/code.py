@@ -30,14 +30,14 @@ def overlap(a, t):
     return max(np.mean(np.array(p)[a] == t) for p in permutations(range(3)))
 
 # ---------------------------------------------------------------
-# 2) 담판: 결제액 3등분(초파리) vs K-평균(Money-Robo)
+# 2) 담판: 결제액 3등분(초파리) vs K-평균(주판봇)
 for pay_only in (False, True):
     X, grade = make(pay_only)
     q1, q2 = np.quantile(X[:, 1], [1 / 3, 2 / 3])
     fly = np.digitize(X[:, 1], [q1, q2])
     robo = KMeans(n_clusters=3, n_init=5, random_state=0).fit_predict(StandardScaler().fit_transform(X))
     label = "결제액으로만 갈리는 데이터" if pay_only else "두 특징으로 갈리는 데이터"
-    print(f"[{label}] 초파리(결제액 3등분) {overlap(fly, grade):.3f}   Money-Robo(K-평균) {overlap(robo, grade):.3f}")
+    print(f"[{label}] 초파리(결제액 3등분) {overlap(fly, grade):.3f}   주판봇(K-평균) {overlap(robo, grade):.3f}")
 
 # ---------------------------------------------------------------
 # 3) k를 바꾸면 무리 안 거리 제곱합(inertia)은 계속 준다

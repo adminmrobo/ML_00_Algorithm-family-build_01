@@ -74,15 +74,15 @@ var SLOTN={reg:'지도 · 회귀',cls:'지도 · 분류',clu:'비지도 · 군�
  render();})();
 
 /* ── 담판: 같은 데이터, 다른 질문 ── */
-function storeStats(o,target){return statGrid([[pct(o.acc),'초파리(분류) · 목표 '+target+' 달성 여부 맞힌 비율','f'],[pct(o.base),'기준선 · "늘 '+(o.maj?'달성':'미달')+'"이라고만 답할 때'],[fx(o.mae,1),'Money-Robo(회귀) · 평균 오차(만 원)','r'],[fx(o.maeB,1),'기준선 · "늘 평균 매출"이라고만 답할 때']]);}
+function storeStats(o,target){return statGrid([[pct(o.acc),'초파리(분류) · 목표 '+target+' 달성 여부 맞힌 비율','f'],[pct(o.base),'기준선 · "늘 '+(o.maj?'달성':'미달')+'"이라고만 답할 때'],[fx(o.mae,1),'주판봇(회귀) · 평균 오차(만 원)','r'],[fx(o.maeB,1),'기준선 · "늘 평균 매출"이라고만 답할 때']]);}
 Duel('d1',{title:'같은 매출 데이터, 다른 질문',q:'가게의 하루 매출 기록 120일치(광고비, 주말 여부, 매출). 80일로 배우고 처음 보는 40일로 잰다. 둘은 같은 데이터에 서로 다른 질문을 던진다.',
  fly:['분류 · 목표(100만 원)를 넘을까','되나 안 되나만 알면 돼.'],robo:['회귀 · 매출이 얼마일까','숫자로 말해야 돈이 되지.'],roboMood:'chart',
  run:async function(p){p(.4);await wait(200);var o=STORE.duel(100);p(1);
-  return {winner:'d',measure:'처음 보는 40일에서 초파리 쪽은 '+pct(o.acc)+'를 맞혔어요(기준선 '+pct(o.base)+'). Money-Robo 쪽은 평균 '+fx(o.mae,1)+'만 원 빗나갔어요(기준선 '+fx(o.maeB,1)+'만 원). 둘 다 기준선을 넉넉히 이겼어요.',
+  return {winner:'d',measure:'처음 보는 40일에서 초파리 쪽은 '+pct(o.acc)+'를 맞혔어요(기준선 '+pct(o.base)+'). 주판봇 쪽은 평균 '+fx(o.mae,1)+'만 원 빗나갔어요(기준선 '+fx(o.maeB,1)+'만 원). 둘 다 기준선을 넉넉히 이겼어요.',
    verdict:'장부의 단위가 달라 견줄 수 없다. 하나는 맞힌 비율, 하나는 빗나간 금액이다. 둘 다 자기 질문에 잘 답했다. 이 구역은 나눠 갖는다.',key:'가문을 고르는 건 데이터가 아니라 질문이다.',
    render:function(b){b.innerHTML=storeStats(o,100);}};},
  alts:[{label:'회귀 예측으로 달성 여부도 판정하면?',run:async function(box){var o=STORE.duel(100);
-   box.innerHTML=statGrid([[pct(o.via),'Money-Robo의 매출 예측이 100 이상이면 "달성"으로 바꿔 판정','r'],[pct(o.acc),'초파리의 분류 모델','f']])+say('asst','smile','회귀로 얻은 숫자를 문턱에 대 보면 분류 답도 나와요. 거의 비슷해요. 회귀는 더 많은 정보(얼마나)를 주는 대신, 문턱을 사람이 정해야 해요.');}},
+   box.innerHTML=statGrid([[pct(o.via),'주판봇의 매출 예측이 100 이상이면 "달성"으로 바꿔 판정','r'],[pct(o.acc),'초파리의 분류 모델','f']])+say('asst','smile','회귀로 얻은 숫자를 문턱에 대 보면 분류 답도 나와요. 거의 비슷해요. 회귀는 더 많은 정보(얼마나)를 주는 대신, 문턱을 사람이 정해야 해요.');}},
   {label:'목표를 130만 원으로 올리면?',run:async function(box){var o=STORE.duel(130);
    box.innerHTML=storeStats(o,130)+say('fly','point','정확도 '+pct(o.acc)+'? 근데 "늘 미달"이라고만 해도 '+pct(o.base)+'잖아. 목표를 넘는 날이 전체의 '+pct(o.pos,0)+'뿐이면 정확도는 속기 쉬워. 이건 4-12에서 다시 따지자.');}}]});
 

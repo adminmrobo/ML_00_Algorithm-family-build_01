@@ -56,8 +56,8 @@ Duel('d5',{title:'위원 한 명 vs 스물다섯 명',q:'문제 2,000개를 푼�
  fly:['믿을 만한 한 명','다 같은 실력이면 한 명이면 충분해.'],robo:['스물다섯 명의 다수결','분산 투자가 기본이지.'],roboMood:'stack',
  run:async function(p){p(.4);await wait(120);var one=ENS.committee(1,.6,0),many=ENS.committee(25,.6,0);p(1);
   return {winner:many>one?'r':(many<one?'f':'d'),big:false,measure:'문제 2,000개에서 한 명은 '+pct(one)+', 스물다섯 명 다수결은 '+pct(many)+'를 맞혔어요. 계산식으로 구한 값(60.0%, '+pct(ML.majority(25,.6))+')과 거의 같아요.',
-   verdict:'서로 다르게 틀리는 위원을 모으면 다수결이 훨씬 강해진다. 이 구역은 Money-Robo 쪽이다. 다만 초파리의 질문이 바로 이 승리의 조건이다.',key:'다수결의 힘은 위원 수가 아니라 위원들이 서로 다르게 틀리는 데서 나온다.',
-   render:function(box){box.innerHTML=statGrid([[pct(one),'초파리 · 한 명','f'],[pct(many),'Money-Robo · 25명 다수결','r'],[pct(ML.majority(5,.6)),'참고 · 5명 다수결 (계산식)'],[pct(ML.majority(51,.6)),'참고 · 51명 다수결 (계산식)']]);}};},
+   verdict:'서로 다르게 틀리는 위원을 모으면 다수결이 훨씬 강해진다. 이 구역은 주판봇 쪽이다. 다만 초파리의 질문이 바로 이 승리의 조건이다.',key:'다수결의 힘은 위원 수가 아니라 위원들이 서로 다르게 틀리는 데서 나온다.',
+   render:function(box){box.innerHTML=statGrid([[pct(one),'초파리 · 한 명','f'],[pct(many),'주판봇 · 25명 다수결','r'],[pct(ML.majority(5,.6)),'참고 · 5명 다수결 (계산식)'],[pct(ML.majority(51,.6)),'참고 · 51명 다수결 (계산식)']]);}};},
  alts:[{label:'위원들이 같은 실수를 하면 (ρ = 0.5)?',run:async function(box){var one=ENS.committee(1,.6,0),many=ENS.committee(25,.6,.5);
    box.innerHTML=statGrid([[pct(one),'한 명','f'],[pct(many),'25명 다수결 · ρ = 0.5','r']])+say('fly','arms','봐, 절반쯤 같은 의견을 따라가면 스물다섯 명이어도 한 명이랑 별 차이 없어.')+say('robo','blush','분산 투자인 줄 알았는데 다 같은 종목을 산 셈이었네…');}},
   {label:'위원 실력이 45%라면?',run:async function(box){var one=ENS.committee(1,.45,0),many=ENS.committee(25,.45,0);

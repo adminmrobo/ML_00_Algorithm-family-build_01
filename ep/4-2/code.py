@@ -19,11 +19,11 @@ def make(flip, seed=42, n=300):
     return train_test_split(X, y, test_size=100, random_state=3)
 
 # ---------------------------------------------------------------
-# 2) 담판: 깊이 3(초파리) vs 끝까지(Money-Robo)
+# 2) 담판: 깊이 3(초파리) vs 끝까지(주판봇)
 for flip in (0.15, 0.0):
     X_tr, X_va, y_tr, y_va = make(flip)
     print(f"--- 정답 뒤집기 {int(flip*100)}% ---")
-    for name, depth in (("초파리 · 깊이 3", 3), ("Money-Robo · 끝까지", None)):
+    for name, depth in (("초파리 · 깊이 3", 3), ("주판봇 · 끝까지", None)):
         t = DecisionTreeClassifier(max_depth=depth, random_state=0).fit(X_tr, y_tr)
         print(f"{name:18s} 훈련 {t.score(X_tr, y_tr):.3f}  검증 {t.score(X_va, y_va):.3f}  잎 {t.get_n_leaves()}개")
 

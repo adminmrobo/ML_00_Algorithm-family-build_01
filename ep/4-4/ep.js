@@ -77,12 +77,12 @@ function curvesCanvas(id,A,B,la,lb,sw){function dr(){var cv=$(id);if(!cv)return;
 Duel('d4',{title:'잘 나오는 금고만 당길까',q:'보상 금고 A(70%)와 B(30%). 300번 당기는 동안 100번째에 두 금고의 확률이 몰래 뒤바뀐다. 둘 다 같은 값 고치기 식(α = 0.1)을 쓰고, 고르는 방식만 다르다. 시드 300개의 평균으로 잰다.',
  fly:['열 번에 한 번은 아무 금고나 (ε = 0.1)','가끔은 다른 길도 가 봐야 바뀐 걸 알지.'],robo:['늘 값이 큰 금고만 (ε = 0)','지금 제일 잘 나오는 데 몰빵이지.'],roboMood:'coin',
  run:async function(p){p(.3);await wait(80);var o=RL.duel();p(1);
-  return {winner:o.e.mean>o.g.mean?'f':(o.e.mean<o.g.mean?'r':'d'),measure:'시드 300개 평균으로 초파리 쪽 누적 보상은 '+fx(o.e.mean,1)+', Money-Robo 쪽은 '+fx(o.g.mean,1)+'이에요. 그때그때 좋은 금고를 고른 비율은 초파리 '+pct(o.e.goodRate)+', Money-Robo '+pct(o.g.goodRate)+'예요.',
+  return {winner:o.e.mean>o.g.mean?'f':(o.e.mean<o.g.mean?'r':'d'),measure:'시드 300개 평균으로 초파리 쪽 누적 보상은 '+fx(o.e.mean,1)+', 주판봇 쪽은 '+fx(o.g.mean,1)+'이에요. 그때그때 좋은 금고를 고른 비율은 초파리 '+pct(o.e.goodRate)+', 주판봇 '+pct(o.g.goodRate)+'예요.',
    verdict:'지금 가장 좋아 보이는 것만 고르면 세상이 바뀐 걸 모른다. 탐험한 쪽이 바뀐 금고를 찾아냈다. 이 구역은 초파리 쪽이다.',key:'활용만 하면 모르는 쪽의 정보가 쌓이지 않는다.',
-   render:function(box){box.innerHTML=statGrid([[fx(o.e.mean,1),'초파리 · ε = 0.1 · 평균 누적 보상','f'],[pct(o.e.goodRate),'초파리 · 좋은 금고 고른 비율','f'],[fx(o.g.mean,1),'Money-Robo · ε = 0 · 평균 누적 보상','r'],[pct(o.g.goodRate),'Money-Robo · 좋은 금고 고른 비율','r']])+'<canvas class="fig" id="bcA" style="margin-top:12px" aria-label="두 방식의 평균 누적 보상 곡선. 100번째 이후 초파리 쪽 곡선이 더 가파르게 오른다"></canvas>';curvesCanvas('bcA',o.e,o.g,'초파리','Money-Robo',RL.SW);}};},
+   render:function(box){box.innerHTML=statGrid([[fx(o.e.mean,1),'초파리 · ε = 0.1 · 평균 누적 보상','f'],[pct(o.e.goodRate),'초파리 · 좋은 금고 고른 비율','f'],[fx(o.g.mean,1),'주판봇 · ε = 0 · 평균 누적 보상','r'],[pct(o.g.goodRate),'주판봇 · 좋은 금고 고른 비율','r']])+'<canvas class="fig" id="bcA" style="margin-top:12px" aria-label="두 방식의 평균 누적 보상 곡선. 100번째 이후 초파리 쪽 곡선이 더 가파르게 오른다"></canvas>';curvesCanvas('bcA',o.e,o.g,'초파리','주판봇',RL.SW);}};},
  alts:[{label:'금고 확률이 끝까지 안 바뀐다면?',run:async function(box){var o=RL.duel(1e9);
-   box.innerHTML=statGrid([[fx(o.e.mean,1),'초파리 · ε = 0.1','f'],[fx(o.g.mean,1),'Money-Robo · ε = 0','r']])+'<canvas class="fig" id="bcB" style="margin-top:12px" aria-label="금고가 바뀌지 않을 때 두 방식의 평균 누적 보상 곡선"></canvas>'+
-    say('robo','wow','안 바뀌는데도 내가 져? …아, 처음에 B가 운 좋게 한 번 나오면 B만 당기다가 A를 영영 안 해 보는구나.')+say('asst','ledger','맞아요. 값이 처음엔 둘 다 0이라, 탐험이 없으면 처음 몇 번의 운에 묶여요. 바뀌지 않는 세상에서도 탐험이 조금은 필요해요.');curvesCanvas('bcB',o.e,o.g,'초파리','Money-Robo',1e9);}},
+   box.innerHTML=statGrid([[fx(o.e.mean,1),'초파리 · ε = 0.1','f'],[fx(o.g.mean,1),'주판봇 · ε = 0','r']])+'<canvas class="fig" id="bcB" style="margin-top:12px" aria-label="금고가 바뀌지 않을 때 두 방식의 평균 누적 보상 곡선"></canvas>'+
+    say('robo','wow','안 바뀌는데도 내가 져? …아, 처음에 B가 운 좋게 한 번 나오면 B만 당기다가 A를 영영 안 해 보는구나.')+say('asst','ledger','맞아요. 값이 처음엔 둘 다 0이라, 탐험이 없으면 처음 몇 번의 운에 묶여요. 바뀌지 않는 세상에서도 탐험이 조금은 필요해요.');curvesCanvas('bcB',o.e,o.g,'초파리','주판봇',1e9);}},
   {label:'탐험을 ε = 0.5로 크게 하면?',run:async function(box){var o=RL.duel();
    box.innerHTML=statGrid([[fx(o.e.mean,1),'ε = 0.1','f'],[fx(o.e5.mean,1),'ε = 0.5'],[fx(o.g.mean,1),'ε = 0','r']])+say('fly','coffee','절반이나 아무 데나 당기면 좋은 금고를 알아도 못 써먹지. 탐험은 조금, 활용은 많이.');}}]});
 

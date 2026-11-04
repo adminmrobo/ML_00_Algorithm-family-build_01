@@ -31,4 +31,4 @@ def average(eps, switch_at):
 
 for switch_at, label in ((100, "100번째에 확률이 바뀜"), (10**9, "끝까지 안 바뀜")):
     res = {eps: average(eps, switch_at) for eps in (0.0, 0.1, 0.5)}
-    print(f"[{label}]  ε=0(Money-Robo) {res[0.0]:.1f}   ε=0.1(초파리) {res[0.1]:.1f}   ε=0.5 {res[0.5]:.1f}")
+    print(f"[{label}]  ε=0(주판봇) {res[0.0]:.1f}   ε=0.1(초파리) {res[0.1]:.1f}   ε=0.5 {res[0.5]:.1f}")

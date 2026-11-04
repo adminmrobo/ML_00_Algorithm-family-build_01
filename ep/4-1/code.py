@@ -31,7 +31,7 @@ base_c = DummyClassifier(strategy="most_frequent").fit(X_tr, y_tr)
 print(f"[분류] 정확도 {accuracy_score(y_te, clf.predict(X_te)):.3f}   기준선(늘 많은 쪽) {accuracy_score(y_te, base_c.predict(X_te)):.3f}")
 
 # ---------------------------------------------------------------
-# 3) Money-Robo의 질문: 매출이 얼마일까? (회귀)
+# 3) 주판봇의 질문: 매출이 얼마일까? (회귀)
 reg = LinearRegression().fit(X_tr, s_tr)
 base_r = DummyRegressor(strategy="mean").fit(X_tr, s_tr)
 print(f"[회귀] 평균 오차 {mean_absolute_error(s_te, reg.predict(X_te)):.2f}만 원   기준선(늘 평균) {mean_absolute_error(s_te, base_r.predict(X_te)):.2f}만 원")
