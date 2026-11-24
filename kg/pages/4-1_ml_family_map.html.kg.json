@@ -1,0 +1,406 @@
+{
+ "version": "1.0",
+ "page": "4-1_ml_family_map",
+ "nodes": [
+  {
+   "id": "lab:concept/supervised-learning",
+   "type": "Concept",
+   "label": {
+    "ko": "지도 학습",
+    "en": "supervised learning"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "ai",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "사람이 붙인 이름표(정답)를 맞히도록 배우는 방식."
+   }
+  },
+  {
+   "id": "lab:concept/reward",
+   "type": "Concept",
+   "label": {
+    "ko": "보상",
+    "en": "Reward"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#series",
+   "level": 3,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:concept/regression",
+   "type": "Concept",
+   "label": {
+    "ko": "회귀",
+    "en": "Regression"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "숫자를 맞히는 문제."
+   }
+  },
+  {
+   "id": "lab:method/reinforcement-learning",
+   "type": "Concept",
+   "label": {
+    "ko": "강화학습",
+    "en": "reinforcement learning"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "fin",
+    "neuro",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "행동하고 보상을 받으며 좋은 행동 규칙을 배우는 방법."
+   }
+  },
+  {
+   "id": "lab:concept/classification",
+   "type": "Concept",
+   "label": {
+    "ko": "분류",
+    "en": "Classification"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#treeInfo",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "범주를 맞히는 문제."
+   }
+  },
+  {
+   "id": "lab:concept/prompt",
+   "type": "Concept",
+   "label": {
+    "ko": "프롬프트",
+    "en": "prompt"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#prompt",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "AI에게 무엇을 만들지 알려 주는 글."
+   }
+  },
+  {
+   "id": "lab:concept/xgboost",
+   "type": "Method",
+   "label": {
+    "ko": "XGBoost",
+    "en": "XGBoost"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "ai",
+    "ml",
+    "rl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "천하제일 지능대회"
+   }
+  },
+  {
+   "id": "lab:concept/random-forest",
+   "type": "Method",
+   "label": {
+    "ko": "랜덤 포레스트",
+    "en": "Random forest"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "stats",
+    "ai",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "나무 수백 그루의 다수결"
+   }
+  },
+  {
+   "id": "lab:concept/unsupervised-learning",
+   "type": "Concept",
+   "label": {
+    "ko": "비지도 학습",
+    "en": "unsupervised learning"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "ai",
+    "ml",
+    "genai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "정답 없이 데이터를 묶거나 패턴을 찾는 방식."
+   }
+  },
+  {
+   "id": "lab:topic/supervised-learning",
+   "type": "Topic",
+   "label": {
+    "ko": "지도 학습",
+    "en": "Supervised learning"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/reward",
+   "type": "Topic",
+   "label": {
+    "ko": "보상",
+    "en": "Reward"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/prompting",
+   "type": "Topic",
+   "label": {
+    "ko": "프롬프팅",
+    "en": "Prompting"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#kg",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/boosting",
+   "type": "Topic",
+   "label": {
+    "ko": "부스팅",
+    "en": "Boosting"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/random-forest",
+   "type": "Topic",
+   "label": {
+    "ko": "랜덤 포레스트",
+    "en": "Random forest"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/unsupervised-learning",
+   "type": "Topic",
+   "label": {
+    "ko": "비지도 학습 개념",
+    "en": "Unsupervised learning (concept)"
+   },
+   "page": "4-1_ml_family_map",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:concept/supervised-learning",
+   "p": "lab:broader",
+   "o": "lab:topic/supervised-learning",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/reward",
+   "p": "lab:broader",
+   "o": "lab:topic/reward",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/prompt",
+   "p": "lab:broader",
+   "o": "lab:topic/prompting",
+   "anchor": "#prompt",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/xgboost",
+   "p": "lab:broader",
+   "o": "lab:topic/boosting",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/random-forest",
+   "p": "lab:broader",
+   "o": "lab:topic/random-forest",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/unsupervised-learning",
+   "p": "lab:broader",
+   "o": "lab:topic/unsupervised-learning",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/regression",
+   "p": "lab:contrastsWith",
+   "o": "lab:concept/classification",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/supervised-learning",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/unsupervised-learning",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/reward",
+   "p": "lab:partOf",
+   "o": "lab:method/reinforcement-learning",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/supervised-learning",
+   "p": "lab:contrastsWith",
+   "o": "lab:method/reinforcement-learning",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/unsupervised-learning",
+   "p": "lab:contrastsWith",
+   "o": "lab:concept/supervised-learning",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  }
+ ]
+}

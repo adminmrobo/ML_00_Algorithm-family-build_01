@@ -1,0 +1,426 @@
+{
+ "version": "1.0",
+ "page": "4-4_reinforcement",
+ "nodes": [
+  {
+   "id": "lab:concept/reward",
+   "type": "Concept",
+   "label": {
+    "ko": "보상",
+    "en": "Reward"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#series",
+   "level": 3,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:method/reinforcement-learning",
+   "type": "Concept",
+   "label": {
+    "ko": "강화학습",
+    "en": "reinforcement learning"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#m1",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "fin",
+    "neuro",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "행동하고 보상을 받으며 좋은 행동 규칙을 배우는 방법."
+   }
+  },
+  {
+   "id": "lab:concept/supervised-learning",
+   "type": "Concept",
+   "label": {
+    "ko": "지도 학습",
+    "en": "supervised learning"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#m2",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "ai",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "사람이 붙인 이름표(정답)를 맞히도록 배우는 방식."
+   }
+  },
+  {
+   "id": "lab:concept/exploration",
+   "type": "Concept",
+   "label": {
+    "ko": "탐험",
+    "en": "Exploration"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#m2",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "rl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "가끔 일부러 아무 수나 둬서 새 길을 알아본다."
+   }
+  },
+  {
+   "id": "lab:concept/exploration-exploitation",
+   "type": "Concept",
+   "label": {
+    "ko": "탐험과 활용",
+    "en": "Exploration and exploitation"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#m3",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "rl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "영상과 대시보드"
+   }
+  },
+  {
+   "id": "lab:concept/hidden-state",
+   "type": "Concept",
+   "label": {
+    "ko": "상태",
+    "en": "Hidden state"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "stats",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "지금까지 읽은 것을 요약한 64칸짜리 숫자 묶음 h. 걸음마다 새로 계산되어 덮어써진다."
+   }
+  },
+  {
+   "id": "lab:concept/llm-agent",
+   "type": "Concept",
+   "label": {
+    "ko": "에이전트",
+    "en": "AI agent"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#m1",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "logic",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "목표를 받아 도구를 부르고 여러 단계를 스스로 실행하는 AI 시스템."
+   }
+  },
+  {
+   "id": "lab:concept/prompt",
+   "type": "Concept",
+   "label": {
+    "ko": "프롬프트",
+    "en": "prompt"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#prompt",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "AI에게 무엇을 만들지 알려 주는 글."
+   }
+  },
+  {
+   "id": "lab:method/q-learning",
+   "type": "Method",
+   "label": {
+    "ko": "Q-러닝",
+    "en": "Q-learning"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "ml",
+    "ai",
+    "rl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "상태-행동 가치 Q를 보상으로 고쳐 가는 강화학습 방법."
+   }
+  },
+  {
+   "id": "lab:topic/reward",
+   "type": "Topic",
+   "label": {
+    "ko": "보상",
+    "en": "Reward"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/supervised-learning",
+   "type": "Topic",
+   "label": {
+    "ko": "지도 학습",
+    "en": "Supervised learning"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/exploration",
+   "type": "Topic",
+   "label": {
+    "ko": "탐험과 활용",
+    "en": "Exploration–exploitation"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/rnn",
+   "type": "Topic",
+   "label": {
+    "ko": "순환 신경망",
+    "en": "Recurrent neural network"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/mdp",
+   "type": "Topic",
+   "label": {
+    "ko": "마르코프 결정 과정",
+    "en": "Markov decision process"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/prompting",
+   "type": "Topic",
+   "label": {
+    "ko": "프롬프팅",
+    "en": "Prompting"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#kg",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/q-learning",
+   "type": "Topic",
+   "label": {
+    "ko": "Q-러닝",
+    "en": "Q-learning"
+   },
+   "page": "4-4_reinforcement",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:concept/reward",
+   "p": "lab:broader",
+   "o": "lab:topic/reward",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/supervised-learning",
+   "p": "lab:broader",
+   "o": "lab:topic/supervised-learning",
+   "anchor": "#m2",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/exploration",
+   "p": "lab:broader",
+   "o": "lab:topic/exploration",
+   "anchor": "#m2",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/exploration-exploitation",
+   "p": "lab:broader",
+   "o": "lab:topic/exploration",
+   "anchor": "#m3",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/hidden-state",
+   "p": "lab:broader",
+   "o": "lab:topic/rnn",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/llm-agent",
+   "p": "lab:broader",
+   "o": "lab:topic/mdp",
+   "anchor": "#m1",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/prompt",
+   "p": "lab:broader",
+   "o": "lab:topic/prompting",
+   "anchor": "#prompt",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/q-learning",
+   "p": "lab:broader",
+   "o": "lab:topic/q-learning",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/reward",
+   "p": "lab:partOf",
+   "o": "lab:method/reinforcement-learning",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/exploration",
+   "p": "lab:partOf",
+   "o": "lab:method/q-learning",
+   "anchor": "#m2",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/supervised-learning",
+   "p": "lab:contrastsWith",
+   "o": "lab:method/reinforcement-learning",
+   "anchor": "#m2",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  }
+ ]
+}

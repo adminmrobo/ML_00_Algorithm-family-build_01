@@ -1,0 +1,381 @@
+{
+ "version": "1.0",
+ "page": "4-2_supervised",
+ "nodes": [
+  {
+   "id": "lab:concept/classification",
+   "type": "Concept",
+   "label": {
+    "ko": "분류",
+    "en": "Classification"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#m2",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "범주를 맞히는 문제."
+   }
+  },
+  {
+   "id": "lab:concept/regression",
+   "type": "Concept",
+   "label": {
+    "ko": "회귀",
+    "en": "Regression"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#m2",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "숫자를 맞히는 문제."
+   }
+  },
+  {
+   "id": "lab:term/label",
+   "type": "Term",
+   "label": {
+    "ko": "이름표",
+    "en": "label"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "genai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "사람이 데이터에 붙인 정답."
+   }
+  },
+  {
+   "id": "lab:concept/decision-tree",
+   "type": "Concept",
+   "label": {
+    "ko": "결정 트리",
+    "en": "Decision tree"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#depth",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:concept/step-function",
+   "type": "Concept",
+   "label": {
+    "ko": "계단 함수",
+    "en": "step function"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#depth",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "dl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "값이 뚝뚝 끊겨 바뀌는 함수. 디딤판에서 기울기 0."
+   }
+  },
+  {
+   "id": "lab:concept/supervised-learning",
+   "type": "Concept",
+   "label": {
+    "ko": "지도 학습",
+    "en": "supervised learning"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "ai",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "사람이 붙인 이름표(정답)를 맞히도록 배우는 방식."
+   }
+  },
+  {
+   "id": "lab:concept/prompt",
+   "type": "Concept",
+   "label": {
+    "ko": "프롬프트",
+    "en": "prompt"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#prompt",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "AI에게 무엇을 만들지 알려 주는 글."
+   }
+  },
+  {
+   "id": "lab:method/pruning",
+   "type": "Method",
+   "label": {
+    "ko": "가지치기",
+    "en": "Pruning"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#depth",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "data",
+    "fin"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "절댓값이 작은 가중치부터 0으로"
+   }
+  },
+  {
+   "id": "lab:concept/overfitting",
+   "type": "Concept",
+   "label": {
+    "ko": "과적합",
+    "en": "Overfitting"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#owlHost",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "biz",
+    "data"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "학습 데이터의 잡음까지 외운 상태."
+   }
+  },
+  {
+   "id": "lab:topic/decision-tree",
+   "type": "Topic",
+   "label": {
+    "ko": "결정 트리",
+    "en": "Decision tree"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/activation-function",
+   "type": "Topic",
+   "label": {
+    "ko": "활성화 함수",
+    "en": "Activation function"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/supervised-learning",
+   "type": "Topic",
+   "label": {
+    "ko": "지도 학습",
+    "en": "Supervised learning"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/prompting",
+   "type": "Topic",
+   "label": {
+    "ko": "프롬프팅",
+    "en": "Prompting"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#kg",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/sparse-representation",
+   "type": "Topic",
+   "label": {
+    "ko": "희소 표현",
+    "en": "Sparse representation"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/bias-variance",
+   "type": "Topic",
+   "label": {
+    "ko": "편향-분산 균형",
+    "en": "Bias–variance trade-off"
+   },
+   "page": "4-2_supervised",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:concept/decision-tree",
+   "p": "lab:broader",
+   "o": "lab:topic/decision-tree",
+   "anchor": "#depth",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/step-function",
+   "p": "lab:broader",
+   "o": "lab:topic/activation-function",
+   "anchor": "#depth",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/supervised-learning",
+   "p": "lab:broader",
+   "o": "lab:topic/supervised-learning",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/prompt",
+   "p": "lab:broader",
+   "o": "lab:topic/prompting",
+   "anchor": "#prompt",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/pruning",
+   "p": "lab:broader",
+   "o": "lab:topic/sparse-representation",
+   "anchor": "#depth",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/overfitting",
+   "p": "lab:broader",
+   "o": "lab:topic/bias-variance",
+   "anchor": "#owlHost",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/regression",
+   "p": "lab:contrastsWith",
+   "o": "lab:concept/classification",
+   "anchor": "#m2",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:term/label",
+   "p": "lab:partOf",
+   "o": "lab:concept/supervised-learning",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  }
+ ]
+}

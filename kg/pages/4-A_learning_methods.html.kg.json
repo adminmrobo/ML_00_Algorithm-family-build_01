@@ -1,0 +1,426 @@
+{
+ "version": "1.0",
+ "page": "4-A_learning_methods",
+ "nodes": [
+  {
+   "id": "lab:concept/cross-validation",
+   "type": "Method",
+   "label": {
+    "ko": "교차검증",
+    "en": "Cross-validation"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#m3",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "ml",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "다섯 조각으로 다섯 번 재기"
+   }
+  },
+  {
+   "id": "lab:concept/reward",
+   "type": "Concept",
+   "label": {
+    "ko": "보상",
+    "en": "Reward"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#series",
+   "level": 3,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:concept/validation",
+   "type": "Concept",
+   "label": {
+    "ko": "검증",
+    "en": "validation"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#m3",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "하이퍼파라미터를 고르기 위한 채점. 시험과 구분한다."
+   }
+  },
+  {
+   "id": "lab:concept/test-set",
+   "type": "Term",
+   "label": {
+    "ko": "시험 세트",
+    "en": "test set"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#m2",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "fin",
+    "ai",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "학습에 쓰지 않고 최종 성능 평가에만 쓰는 데이터."
+   }
+  },
+  {
+   "id": "lab:concept/overfitting",
+   "type": "Concept",
+   "label": {
+    "ko": "과적합",
+    "en": "Overfitting"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#m6",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "biz",
+    "data"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "학습 데이터의 잡음까지 외운 상태."
+   }
+  },
+  {
+   "id": "lab:concept/prompt",
+   "type": "Concept",
+   "label": {
+    "ko": "프롬프트",
+    "en": "prompt"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#prompt",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "AI에게 무엇을 만들지 알려 주는 글."
+   }
+  },
+  {
+   "id": "lab:method/cross-validation",
+   "type": "Method",
+   "label": {
+    "ko": "5겹 교차검증",
+    "en": "5-fold cross-validation"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#m3",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "biz",
+    "fin"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "다섯 판 평균과 흔들림"
+   }
+  },
+  {
+   "id": "lab:method/reinforcement-learning",
+   "type": "Concept",
+   "label": {
+    "ko": "강화학습",
+    "en": "reinforcement learning"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#m5",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "fin",
+    "neuro",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "행동하고 보상을 받으며 좋은 행동 규칙을 배우는 방법."
+   }
+  },
+  {
+   "id": "lab:concept/validation-split",
+   "type": "Concept",
+   "label": {
+    "ko": "검증 몫",
+    "en": "Validation split"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#m3",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "ai",
+    "ml",
+    "dl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "훈련 772건에서 15%(116건)를 다시 떼어, 언제 멈출지 고르는 데만 쓰는 몫. 시험지와 다르다."
+   }
+  },
+  {
+   "id": "lab:concept/decision-tree",
+   "type": "Concept",
+   "label": {
+    "ko": "결정 트리",
+    "en": "Decision tree"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#m3",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "ml",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:topic/cross-validation",
+   "type": "Topic",
+   "label": {
+    "ko": "교차검증",
+    "en": "Cross-validation"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "stats"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/reward",
+   "type": "Topic",
+   "label": {
+    "ko": "보상",
+    "en": "Reward"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/data-splitting",
+   "type": "Topic",
+   "label": {
+    "ko": "훈련·검증·시험 분리",
+    "en": "Train/validation/test split"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/bias-variance",
+   "type": "Topic",
+   "label": {
+    "ko": "편향-분산 균형",
+    "en": "Bias–variance trade-off"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/prompting",
+   "type": "Topic",
+   "label": {
+    "ko": "프롬프팅",
+    "en": "Prompting"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#kg",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/decision-tree",
+   "type": "Topic",
+   "label": {
+    "ko": "결정 트리",
+    "en": "Decision tree"
+   },
+   "page": "4-A_learning_methods",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:concept/cross-validation",
+   "p": "lab:broader",
+   "o": "lab:topic/cross-validation",
+   "anchor": "#m3",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/reward",
+   "p": "lab:broader",
+   "o": "lab:topic/reward",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/test-set",
+   "p": "lab:broader",
+   "o": "lab:topic/data-splitting",
+   "anchor": "#m2",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/overfitting",
+   "p": "lab:broader",
+   "o": "lab:topic/bias-variance",
+   "anchor": "#m6",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/prompt",
+   "p": "lab:broader",
+   "o": "lab:topic/prompting",
+   "anchor": "#prompt",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/cross-validation",
+   "p": "lab:broader",
+   "o": "lab:topic/cross-validation",
+   "anchor": "#m3",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/validation-split",
+   "p": "lab:broader",
+   "o": "lab:topic/data-splitting",
+   "anchor": "#m3",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/decision-tree",
+   "p": "lab:broader",
+   "o": "lab:topic/decision-tree",
+   "anchor": "#m3",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/validation",
+   "p": "lab:partOf",
+   "o": "lab:method/cross-validation",
+   "anchor": "#m3",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/validation",
+   "p": "lab:contrastsWith",
+   "o": "lab:concept/test-set",
+   "anchor": "#m3",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/reward",
+   "p": "lab:partOf",
+   "o": "lab:method/reinforcement-learning",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  }
+ ]
+}
